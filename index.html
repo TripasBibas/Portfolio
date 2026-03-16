@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Genna Fomine — Développeur Full-Stack</title>
+  <meta name="description" content="Portfolio d'Genna Fomine, développeur full-stack spécialisé React, Node.js, architecture cloud.">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Styles spécifiques à la section Compétences restructurée ── */
+
+    /* Accordéon compétences */
+    .comp-list { display: flex; flex-direction: column; gap: 16px; max-width: 1080px; margin: 0 auto; }
+
+    .comp-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.25s;
+    }
+    .comp-item:hover { border-color: var(--blue-dim); }
+    .comp-item.open { border-color: var(--blue-dim); }
+
+    /* En-tête de la compétence (cliquable) */
+    .comp-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 22px 28px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+    }
+    .comp-header:hover { background: rgba(120,158,197,0.04); }
+
+    .comp-header-icon {
+      width: 40px; height: 40px;
+      border-radius: var(--radius-sm);
+      background: var(--blue-pale);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .comp-header-icon svg { width: 20px; height: 20px; color: var(--blue); }
+
+    .comp-header-text { flex: 1; }
+    .comp-header-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+    .comp-header-sub { font-size: 12px; color: var(--text-dim); }
+
+    .comp-header-chevron {
+      width: 20px; height: 20px;
+      color: var(--text-dim);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .comp-item.open .comp-header-chevron { transform: rotate(180deg); color: var(--blue); }
+
+    /* Corps accordéon */
+    .comp-body {
+      display: none;
+      border-top: 1px solid var(--border);
+      padding: 0;
+    }
+    .comp-item.open .comp-body { display: block; }
+
+    /* Grille des 6 axes */
+    .axes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    .axe {
+      padding: 24px 28px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .axe:nth-child(3n) { border-right: none; }
+    .axe:nth-child(4),
+    .axe:nth-child(5),
+    .axe:nth-child(6) { border-bottom: none; }
+
+    .axe-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .axe-num {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--blue-pale);
+      border: 1px solid rgba(120,158,197,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      color: var(--blue);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .axe-label {
+      font-size: 11px;
+      color: var(--blue);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .axe-content { font-size: 13px; color: var(--text-dim); line-height: 1.8; }
+    .axe-content strong { color: var(--text); font-weight: 600; }
+
+    /* Listes numérotées traces */
+    .trace-list { list-style: none; padding: 0; margin: 0; }
+    .trace-list li {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+    .trace-list li:last-child { margin-bottom: 0; }
+    .trace-num {
+      min-width: 20px; height: 20px;
+      border-radius: 3px;
+      background: rgba(120,158,197,0.1);
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Autoévaluation — étoiles */
+    .autoeval {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .eval-row { display: flex; flex-direction: column; gap: 5px; }
+    .eval-label-row { display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+    .eval-dim { color: var(--text-soft); }
+    .eval-score { color: var(--blue); font-weight: 600; }
+    .eval-track { height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+    .eval-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--blue-dim), var(--blue));
+      border-radius: 2px;
+      width: 0;
+      transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @media (max-width: 900px) {
+      .axes-grid { grid-template-columns: 1fr; }
+      .axe { border-right: none; border-bottom: 1px solid var(--border); }
+      .axe:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════ NAV ══════════════ -->
+  <nav>
+    <div class="nav-logo">Genna <em>Fomine</em></div>
+
+    <ul class="nav-links">
+      <!-- À propos : icône personne -->
+      <li><a href="#about">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+        </svg>
+        À propos
+      </a></li>
+      <!-- Compétences : icône accolades -->
+      <li><a href="#skills">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+        </svg>
+        Compétences
+      </a></li>
+      <!-- Projets : icône dossier -->
+      <li><a href="#projects">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+        </svg>
+        Projets
+      </a></li>
+      <!-- Contact : icône mail -->
+      <li><a href="#contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+        </svg>
+        Contact
+      </a></li>
+    </ul>
+
+    <div class="nav-badge">
+      <div class="nav-badge-dot"></div>
+      <span>Disponible</span>
+    </div>
+  </nav>
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section id="hero">
+    <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:hidden;" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="78%" cy="50%" r="280" fill="none" stroke="#789EC5" stroke-width="1" opacity="0.07"/>
+      <circle cx="78%" cy="50%" r="200" fill="none" stroke="#789EC5" stroke-width="1" opacity="0.05"/>
+      <polygon points="60,80 120,180 0,180" fill="none" stroke="#789EC5" stroke-width="1" opacity="0.06"/>
+      <rect x="30" y="72%" width="60" height="60" fill="none" stroke="#789EC5" stroke-width="1" opacity="0.06" transform="rotate(45 60 320)"/>
+      <rect x="88%" y="15%" width="18" height="18" fill="none" stroke="#789EC5" stroke-width="1" opacity="0.1" transform="rotate(20 1070 90)"/>
+      <rect x="12%" y="80%" width="12" height="12" fill="none" stroke="#789EC5" stroke-width="1" opacity="0.08" transform="rotate(15 130 460)"/>
+      <line x1="92%" y1="65%" x2="92%" y2="75%" stroke="#789EC5" stroke-width="1" opacity="0.12"/>
+      <line x1="89%" y1="70%" x2="95%" y2="70%" stroke="#789EC5" stroke-width="1" opacity="0.12"/>
+      <line x1="5%" y1="30%" x2="20%" y2="50%" stroke="#789EC5" stroke-width="1" opacity="0.06"/>
+      <circle cx="25%" cy="20%" r="3" fill="#789EC5" opacity="0.12"/>
+      <circle cx="82%" cy="78%" r="2" fill="#789EC5" opacity="0.1"/>
+      <circle cx="60%" cy="88%" r="2.5" fill="#789EC5" opacity="0.08"/>
+    </svg>
+
+    <div class="hero-layout">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">Développeur Full-Stack</span>
+        </div>
+        <h1 class="hero-name">Genna<br><em>Fomine</em></h1>
+        <p class="hero-role">Architecte de solutions web &amp; cloud · Paris, France</p>
+        <p class="hero-desc">
+          Je conçois des applications web performantes de bout en bout,
+          des interfaces soignées aux infrastructures cloud robustes.
+          Passionné par le code bien structuré et les produits durables.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            Voir mes projets
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Me contacter
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <svg style="position:absolute;top:-50px;right:-50px;width:160px;height:160px;pointer-events:none;opacity:0.06" viewBox="0 0 160 160"><circle cx="80" cy="80" r="70" fill="none" stroke="#789EC5" stroke-width="1"/><circle cx="80" cy="80" r="50" fill="none" stroke="#789EC5" stroke-width="1"/></svg>
+        <svg style="position:absolute;bottom:-20px;left:-20px;width:90px;height:90px;pointer-events:none;opacity:0.05" viewBox="0 0 90 90"><polygon points="45,5 85,80 5,80" fill="none" stroke="#789EC5" stroke-width="1"/></svg>
+
+        <div class="hcard-header">
+          <div class="hcard-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </div>
+          <div>
+            <div class="hcard-name">Genna Fomine</div>
+            <div class="hcard-sub">Full-Stack Developer · Paris</div>
+          </div>
+        </div>
+        <div class="hcard-divider"></div>
+
+        <div class="hcard-row">
+          <div class="hcard-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="hcard-label">Localisation</div>
+            <div class="hcard-value">Paris, Île-de-France</div>
+          </div>
+        </div>
+
+        <div class="hcard-row">
+          <div class="hcard-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div>
+            <div class="hcard-label">Stack principale</div>
+            <div class="hcard-value">React · Node.js · TypeScript · AWS</div>
+          </div>
+        </div>
+
+        <div class="hcard-row">
+          <div class="hcard-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/></svg>
+          </div>
+          <div>
+            <div class="hcard-label">Statut</div>
+            <div class="hcard-value" style="color:var(--green-dot)">● Disponible pour missions</div>
+          </div>
+        </div>
+
+        <div class="hcard-row">
+          <div class="hcard-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="hcard-label">Réponse</div>
+            <div class="hcard-value">Sous 24 heures</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ ABOUT ══════════════ -->
+  <section id="about">
+    <div class="container">
+      <div class="sec-pre reveal">
+        <div class="sec-pre-line"></div>
+        <span class="sec-pre-text">À propos</span>
+      </div>
+      <h2 class="sec-title reveal">Qui suis-je ?</h2>
+
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>Développeur full-stack avec plusieurs années d'expérience, je construis des applications web de bout en bout — de l'interface utilisateur jusqu'à l'infrastructure cloud. J'attache autant d'importance à la <strong>qualité du code</strong> qu'à l'expérience finale de l'utilisateur.</p>
+          <p>J'ai eu l'occasion de travailler sur des produits à grande échelle, de concevoir des APIs robustes et de contribuer à des projets open source.</p>
+          <p>En dehors du code, je m'intéresse à la <strong>typographie</strong>, au design de systèmes et à l'automatisation. Je crois qu'un bon développeur est aussi un bon communicant.</p>
+
+          <div class="about-chips">
+            <span class="chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              React
+            </span>
+            <span class="chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              Next.js
+            </span>
+            <span class="chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Node.js
+            </span>
+            <span class="chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              TypeScript
+            </span>
+            <span class="chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              PostgreSQL
+            </span>
+            <span class="chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              Docker
+            </span>
+            <span class="chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+              AWS
+            </span>
+            <span class="chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+              GraphQL
+            </span>
+            <span class="chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              CI/CD
+            </span>
+          </div>
+        </div>
+
+        <div class="about-stats">
+          <div class="stat-card reveal reveal-d1">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="stat-num">6<sup>+</sup></div>
+              <div class="stat-label">Années d'expérience</div>
+            </div>
+          </div>
+          <div class="stat-card reveal reveal-d2">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+              <div class="stat-num">34</div>
+              <div class="stat-label">Projets livrés</div>
+            </div>
+          </div>
+          <div class="stat-card reveal reveal-d3">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <div class="stat-num">12</div>
+              <div class="stat-label">Clients satisfaits</div>
+            </div>
+          </div>
+          <div class="stat-card reveal reveal-d3">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </div>
+            <div>
+              <div class="stat-num">4k<sup>+</sup></div>
+              <div class="stat-label">Commits cette année</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       COMPÉTENCES — Structure en 6 axes
+       Chaque compétence est un accordéon avec :
+         1. Mes traces (preuves numérotées)
+         2. Mes réussites (prouvées par les traces)
+         3. Mes échecs et moyens pour réussir
+         4. L'adaptation à d'autres situations
+         5. Mon autoévaluation
+  ══════════════════════════════════════════════════════ -->
+  <section id="skills" style="position:relative;overflow:hidden;">
+    <svg style="position:absolute;right:-40px;top:40px;pointer-events:none;opacity:0.05" width="300" height="300" viewBox="0 0 300 300">
+      <polygon points="150,20 280,250 20,250" fill="none" stroke="#789EC5" stroke-width="1.5"/>
+      <polygon points="150,60 245,230 55,230" fill="none" stroke="#789EC5" stroke-width="1"/>
+    </svg>
+    <svg style="position:absolute;left:20px;bottom:40px;pointer-events:none;opacity:0.04" width="160" height="160" viewBox="0 0 160 160">
+      <rect x="10" y="10" width="140" height="140" fill="none" stroke="#789EC5" stroke-width="1.5" rx="4"/>
+      <rect x="30" y="30" width="100" height="100" fill="none" stroke="#789EC5" stroke-width="1" rx="2"/>
+      <rect x="50" y="50" width="60" height="60" fill="none" stroke="#789EC5" stroke-width="1"/>
+    </svg>
+
+    <div class="container">
+      <div class="sec-pre reveal">
+        <div class="sec-pre-line"></div>
+        <span class="sec-pre-text">Compétences</span>
+      </div>
+      <h2 class="sec-title reveal">Maîtrise technique</h2>
+
+      <div class="comp-list">
+
+        <!-- ═══════════════════════════
+             COMPÉTENCE 1 — Développement Frontend React / Next.js
+        ═══════════════════════════ -->
+        <div class="comp-item reveal" id="comp-1">
+          <div class="comp-header" onclick="toggleComp('comp-1')">
+            <div class="comp-header-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div class="comp-header-text">
+              <div class="comp-header-title">Développement Frontend — React / Next.js</div>
+              <div class="comp-header-sub">Conception d'interfaces utilisateur performantes et accessibles</div>
+            </div>
+            <svg class="comp-header-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="comp-body">
+            <div class="axes-grid">
+
+              <!-- Axe 1 : Mes traces -->
+              <div class="axe">
+                <div class="axe-header">
+                  <div class="axe-num">1</div>
+                  <span class="axe-label">Mes traces</span>
+                </div>
+                <div class="axe-content">
+                  <ul class="trace-list">
+                    <li><span class="trace-num">T1</span><span>Refonte complète de l'interface de la console Scaleway (React 18, micro-frontends)</span></li>
+                    <li><span class="trace-num">T2</span><span>Mise en place d'un design system documenté sous Storybook</span></li>
+                    <li><span class="trace-num">T3</span><span>Portfolio personnel déployé sur Vercel avec Next.js App Router</span></li>
+                    <li><span class="trace-num">T4</span><span>Contribution open source au projet Algolia React InstantSearch</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Axe 2 : Mes réussites -->
+              <div class="axe">
+                <div class="axe-header">
+                  <div class="axe-num">2</div>
+                  <span class="axe-label">Mes réussites</span>
+                </div>
+                <div class="axe-content">
+                  <p><strong>+40% Core Web Vitals</strong> sur la console Scaleway après migration (T1, T2).</p>
+                  <br>
+                  <p><strong>Adoption design system</strong> par 4 équipes produit en 3 mois (T2).</p>
+                  <br>
+                  <p><strong>Score Lighthouse 94/100</strong> sur le projet NovaPay (T3).</p>
+                </div>
+              </div>
+
+              <!-- Axe 3 : Mes échecs -->
+              <div class="axe">
+                <div class="axe-header">
+                  <div class="axe-num">3</div>
+                  <span class="axe-label">Mes échecs &amp; objectifs</span>
+                </div>
+                <div class="axe-content">
+                  <p><strong>Accessibilité sous-estimée</strong> lors d'un projet e-commerce : conformité WCAG incomplète à la livraison. → <em>Objectif : intégrer les audits accessibilité dès la phase design.</em></p>
+                  <br>
+                  <p><strong>Animation trop lourde</strong> sur mobile (T3) : janks sur iOS. → <em>Objectif : tester systématiquement sur appareils bas de gamme.</em></p>
+                </div>
+              </div>
+
+              <!-- Axe 4 : Adaptation -->
+              <div class="axe">
+                <div class="axe-header">
+                  <div class="axe-num">4</div>
+                  <span class="axe-label">Adaptation à d'autres situations</span>
+                </div>
+                <div class="axe-content">
+                  <p>Ces compétences sont transposables à <strong>Vue.js / Nuxt</strong> (logique composants similaire) et au développement <strong>mobile React Native</strong>.</p>
+                  <br>
+                  <p>La maîtrise du SSR/SSG Next.js s'applique aussi à des projets <strong>e-commerce (Shopify Hydrogen)</strong> ou <strong>documentation technique</strong>.</p>
+                </div>
+              </div>
+
+              <!-- Axe 5 : Autoévaluation -->
+              <div class="axe" style="grid-column: span 2;">
+                <div class="axe-header">
+                  <div class="axe-num">5</div>
+                  <span class="axe-label">Mon autoévaluation</span>
+                </div>
+                <div class="autoeval">
+                  <div class="eval-row">
+                    <div class="eval-label-row"><span class="eval-dim">Maîtrise technique React</span><span class="eval-score">95%</span></div>
+                    <div class="eval-track"><div class="eval-fill" data-width="95"></div></div>
+                  </div>
+                  <div class="eval-row">
+                    <div class="eval-label-row"><span class="eval-dim">Architecture composants</span><span class="eval-score">88%</span></div>
+                    <div class="eval-track"><div class="eval-fill" data-width="88"></div></div>
+                  </div>
+                  <div class="eval-row">
+                    <div class="eval-label-row"><span class="eval-dim">Performance &amp; optimisation</span><span class="eval-score">82%</span></div>
+                    <div class="eval-track"><div class="eval-fill" data-width="82"></div></div>
+                  </div>
+                  <div class="eval-row">
+                    <div class="eval-label-row"><span class="eval-dim">Accessibilité (WCAG)</span><span class="eval-score">70%</span></div>
+                    <div class="eval-track"><div class="eval-fill" data-width="70"></div></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════
+             COMPÉTENCE 2 — Développement Backend Node.js / API REST
+        ═══════════════════════════ -->
+        <div class="comp-item reveal" id="comp-2">
+          <div class="comp-header" onclick="toggleComp('comp-2')">
+            <div class="comp-header-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <div class="comp-header-text">
+              <div class="comp-header-title">Développement Backend — Node.js / API REST</div>
+              <div class="comp-header-sub">Conception et déploiement de services web robustes et scalables</div>
+            </div>
+            <svg class="comp-header-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="comp-body">
+            <div class="axes-grid">
+
+              <div class="axe">
+                <div class="axe-header"><div class="axe-num">1</div><span class="axe-label">Mes traces</span></div>
+                <div class="axe-content">
+                  <ul class="trace-list">
+                    <li><span class="trace-num">T1</span><span>API REST NovaPay : 50k transactions/jour, latence &lt;12ms</span></li>
+                    <li><span class="trace-num">T2</span><span>Librairie open source Logly : logging structuré pour Node.js (2k ★)</span></li>
+                    <li><span class="trace-num">T3</span><span>APIs Algolia : contribution aux SDK JS haute disponibilité</span></li>
+                    <li><span class="trace-num">T4</span><span>Service d'agrégation DevRadar avec file d'attente BullMQ</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="axe">
+                <div class="axe-header"><div class="axe-num">2</div><span class="axe-label">Mes réussites</span></div>
+                <div class="axe-content">
+                  <p><strong>99.7% uptime</strong> sur NovaPay en production pendant 12 mois (T1).</p>
+                  <br>
+                  <p><strong>Logly adopté</strong> par 200+ projets npm en 6 mois (T2).</p>
+                  <br>
+                  <p><strong>Taux de couverture tests</strong> à 87% maintenu sur 18 mois (T3).</p>
+                </div>
+              </div>
+
+              <div class="axe">
+                <div class="axe-header"><div class="axe-num">3</div><span class="axe-label">Mes échecs &amp; objectifs</span></div>
+                <div class="axe-content">
+                  <p><strong>Pas de rate limiting</strong> initialement sur une API publique (T3) : abus détectés en production. → <em>Objectif : intégrer rate limiting et monitoring dès le départ.</em></p>
+                  <br>
+                  <p><strong>Documentation API incomplète</strong> (T1) : friction pour les intégrateurs externes. → <em>Objectif : adopter une approche API-first avec OpenAPI dès la conception.</em></p>
+                </div>
+              </div>
+
+              <div class="axe">
+                <div class="axe-header"><div class="axe-num">4</div><span class="axe-label">Adaptation à d'autres situations</span></div>
+                <div class="axe-content">
+                  <p>La logique de conception d'API est directement applicable à <strong>GraphQL</strong>, <strong>gRPC</strong> ou des architectures <strong>event-driven</strong>.</p>
+                  <br>
+                  <p>L'expérience Node.js facilite la transition vers <strong>Python / FastAPI</strong> ou <strong>Go</strong> pour des services haute performance.</p>
+                </div>
+              </div>
+
+              <div class="axe" style="grid-column: span 2;">
+                <div class="axe-header"><div class="axe-num">5</div><span class="axe-label">Mon autoévaluation</span></div>
+                <div class="autoeval">
+                  <div class="eval-row">
+                    <div class="eval-label-row"><span class="eval-dim">Conception API REST</span><span class="eval-score">92%</span></div>
+                    <div class="eval-track"><div class="eval-fill" data-width="92"></div></div>
+                  </div>
+                  <div class="eval-row">
+                    <div class="eval-label-row"><span class="eval-dim">Gestion bases de données (PostgreSQL)</span><span class="eval-score">85%</span></div>
+                    <div class="eval-track"><div class="eval-fill" data-width="85"></div></div>
+                  </div>
+                  <div class="eval-row">
+                    <div class="eval-label-row"><span class="eval-dim">Tests automatisés (Jest, Supertest)</span><span class="eval-score">80%</span></div>
+                    <div class="eval-track"><div class="eval-fill" data-width="80"></div></div>
+                  </div>
+                  <div class="eval-row">
+                    <div class="eval-label-row"><span class="eval-dim">Sécurité &amp; authentification</span><span class="eval-score">72%</span></div>
+                    <div class="eval-track"><div class="eval-fill" data-width="72"></div></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════
+             COMPÉTENCE 3 — DevOps & Infrastructure Cloud (AWS / Docker)
+        ═══════════════════════════ -->
+        <div class="comp-item reveal" id="comp-3">
+          <div class="comp-header" onclick="toggleComp('comp-3')">
+            <div class="comp-header-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+            </div>
+            <div class="comp-header-text">
+              <div class="comp-header-title">DevOps &amp; Infrastructure Cloud — AWS / Docker</div>
+              <div class="comp-header-sub">Déploiement, automatisation et scalabilité des applications</div>
+            </div>
+            <svg class="comp-header-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="comp-body">
+            <div class="axes-grid">
+
+              <div class="axe">
+                <div class="axe-header"><div class="axe-num">1</div><span class="axe-label">Mes traces</span></div>
+                <div class="axe-content">
+                  <ul class="trace-list">
+                    <li><span class="trace-num">T1</span><span>Infrastructure NovaPay : ECS + RDS + S3 + CloudFront sur AWS</span></li>
+                    <li><span class="trace-num">T2</span><span>Pipeline CI/CD GitHub Actions : build, test, deploy en 4 min</span></li>
+                    <li><span class="trace-num">T3</span><span>Dockerisation de 3 microservices avec docker-compose en dev local</span></li>
+                    <li><span class="trace-num">T4</span><span>Mise en place de monitoring Datadog + alerting PagerDuty</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="axe">
+                <div class="axe-header"><div class="axe-num">2</div><span class="axe-label">Mes réussites</span></div>
+                <div class="axe-content">
+                  <p><strong>Réduction des coûts AWS de 30%</strong> après optimisation des instances et mise en place d'auto-scaling (T1).</p>
+                  <br>
+                  <p><strong>Déploiements sans downtime</strong> grâce aux blue-green deployments sur ECS (T1, T2).</p>
+                  <br>
+                  <p><strong>Onboarding réduit à 5 min</strong> pour les nouveaux développeurs grâce à Docker (T3).</p>
+                </div>
+              </div>
+
+              <div class="axe">
+                <div class="axe-header"><div class="axe-num">3</div><span class="axe-label">Mes échecs &amp; objectifs</span></div>
+                <div class="axe-content">
+                  <p><strong>Infrastructure as Code absente</strong> sur un projet (T1) : configuration impossible à reproduire. → <em>Objectif : adopter Terraform dès le début de chaque projet.</em></p>
+                  <br>
+                  <p><strong>Kubernetes sous-maîtrisé</strong> : configuration mal dimensionnée en prod. → <em>Objectif : formation certifiante CKA d'ici fin 2025.</em></p>
+                </div>
+              </div>
+
+              <div class="axe">
+                <div class="axe-header"><div class="axe-num">4</div><span class="axe-label">Adaptation à d'autres situations</span></div>
+                <div class="axe-content">
+                  <p>Les pratiques CI/CD s'appliquent à tout environnement cloud : <strong>GCP, Azure</strong> ou des plateformes comme <strong>Vercel, Railway, Fly.io</strong>.</p>
+                  <br>
+                  <p>La containerisation Docker est un prérequis universel pour des contextes <strong>on-premise</strong> ou <strong>hybrides</strong>.</p>
+                </div>
+              </div>
+
+              <div class="axe" style="grid-column: span 2;">
+                <div class="axe-header"><div class="axe-num">5</div><span class="axe-label">Mon autoévaluation</span></div>
+                <div class="autoeval">
+                  <div class="eval-row">
+                    <div class="eval-label-row"><span class="eval-dim">Docker &amp; containerisation</span><span class="eval-score">88%</span></div>
+                    <div class="eval-track"><div class="eval-fill" data-width="88"></div></div>
+                  </div>
+                  <div class="eval-row">
+                    <div class="eval-label-row"><span class="eval-dim">AWS (EC2, S3, ECS, Lambda)</span><span class="eval-score">80%</span></div>
+                    <div class="eval-track"><div class="eval-fill" data-width="80"></div></div>
+                  </div>
+                  <div class="eval-row">
+                    <div class="eval-label-row"><span class="eval-dim">CI/CD &amp; automatisation</span><span class="eval-score">85%</span></div>
+                    <div class="eval-track"><div class="eval-fill" data-width="85"></div></div>
+                  </div>
+                  <div class="eval-row">
+                    <div class="eval-label-row"><span class="eval-dim">Kubernetes &amp; orchestration</span><span class="eval-score">60%</span></div>
+                    <div class="eval-track"><div class="eval-fill" data-width="60"></div></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /comp-list -->
+    </div>
+  </section>
+
+  <!-- ══════════════ PROJECTS ══════════════ -->
+  <section id="projects" style="position:relative;overflow:hidden;">
+    <svg style="position:absolute;left:-60px;top:-60px;pointer-events:none;opacity:0.04" width="350" height="350" viewBox="0 0 350 350">
+      <circle cx="175" cy="175" r="160" fill="none" stroke="#789EC5" stroke-width="1.5"/>
+      <circle cx="175" cy="175" r="110" fill="none" stroke="#789EC5" stroke-width="1"/>
+      <circle cx="175" cy="175" r="60"  fill="none" stroke="#789EC5" stroke-width="1"/>
+    </svg>
+    <svg style="position:absolute;right:10px;bottom:40px;pointer-events:none;opacity:0.05" width="120" height="120" viewBox="0 0 120 120">
+      <polygon points="60,5 115,95 5,95" fill="none" stroke="#789EC5" stroke-width="1.5"/>
+    </svg>
+
+    <div class="projects-inner container">
+      <div class="sec-pre reveal">
+        <div class="sec-pre-line"></div>
+        <span class="sec-pre-text">Projets</span>
+      </div>
+      <h2 class="sec-title reveal">Réalisations récentes</h2>
+
+      <div class="projects-grid">
+        <div class="proj-card wide reveal">
+          <div>
+            <div class="proj-top">
+              <div class="proj-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              </div>
+              <span class="proj-badge">Projet phare</span>
+            </div>
+            <h3 class="proj-title">NovaPay — Plateforme de paiement</h3>
+            <p class="proj-desc">SaaS de gestion de paiements en temps réel pour PME. Architecture microservices, traitement de 50k transactions/jour, tableau de bord analytique et API publique documentée.</p>
+            <div class="proj-stack">
+              <span class="stack-pill">React</span>
+              <span class="stack-pill">Node.js</span>
+              <span class="stack-pill">PostgreSQL</span>
+              <span class="stack-pill">Stripe API</span>
+              <span class="stack-pill">AWS</span>
+              <span class="stack-pill">Docker</span>
+            </div>
+            <div class="proj-links">
+              <a href="#" class="proj-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Démo live
+              </a>
+              <a href="#" class="proj-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+          <div class="proj-visual">
+            <div class="pv-row"><span class="pv-label">Uptime</span><div class="pv-track"><div class="pv-fill" style="width:99.7%"></div></div><span class="pv-val">99.7%</span></div>
+            <div class="pv-row"><span class="pv-label">Perf. API</span><div class="pv-track"><div class="pv-fill" style="width:92%"></div></div><span class="pv-val">92%</span></div>
+            <div class="pv-row"><span class="pv-label">Couverture</span><div class="pv-track"><div class="pv-fill" style="width:87%"></div></div><span class="pv-val">87%</span></div>
+            <div class="pv-row"><span class="pv-label">Lighthouse</span><div class="pv-track"><div class="pv-fill" style="width:94%"></div></div><span class="pv-val">94%</span></div>
+            <div class="pv-metrics">
+              <div class="pv-metric"><div class="pv-metric-num">50k</div><div class="pv-metric-lbl">Tx/jour</div></div>
+              <div class="pv-metric"><div class="pv-metric-num">12ms</div><div class="pv-metric-lbl">Latence</div></div>
+              <div class="pv-metric"><div class="pv-metric-num">3</div><div class="pv-metric-lbl">Services</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card reveal">
+          <div class="proj-top">
+            <div class="proj-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </div>
+            <span class="proj-badge">Open Source</span>
+          </div>
+          <h3 class="proj-title">Logly — Logger universel</h3>
+          <p class="proj-desc">Librairie Node.js de logging structuré, multi-transports, rotation auto et intégration OpenTelemetry. 2k+ étoiles GitHub.</p>
+          <div class="proj-stack"><span class="stack-pill">TypeScript</span><span class="stack-pill">Node.js</span><span class="stack-pill">OpenTelemetry</span></div>
+          <div class="proj-links">
+            <a href="#" class="proj-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              npm
+            </a>
+            <a href="#" class="proj-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="proj-card reveal reveal-d1">
+          <div class="proj-top">
+            <div class="proj-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <span class="proj-badge">Freelance</span>
+          </div>
+          <h3 class="proj-title">Cortex CRM</h3>
+          <p class="proj-desc">CRM sur mesure pour agence immobilière : pipeline de vente, suivi des leads, génération PDF et sync Google Agenda.</p>
+          <div class="proj-stack"><span class="stack-pill">Next.js</span><span class="stack-pill">Prisma</span><span class="stack-pill">tRPC</span><span class="stack-pill">Vercel</span></div>
+          <div class="proj-links">
+            <a href="#" class="proj-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              Case study
+            </a>
+          </div>
+        </div>
+
+        <div class="proj-card reveal reveal-d2">
+          <div class="proj-top">
+            <div class="proj-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <span class="proj-badge">Side project</span>
+          </div>
+          <h3 class="proj-title">DevRadar — Veille tech</h3>
+          <p class="proj-desc">Agrégateur de veille technologique personnel. Crawle, résume et classe automatiquement articles et podcasts via GPT-4.</p>
+          <div class="proj-stack"><span class="stack-pill">Python</span><span class="stack-pill">FastAPI</span><span class="stack-pill">OpenAI</span><span class="stack-pill">SQLite</span></div>
+          <div class="proj-links">
+            <a href="#" class="proj-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--
+  ══════════════════════════════════════════════════════════════════════════════
+  SECTION EXPÉRIENCE — COMMENTÉE (à activer quand l'expérience sera disponible)
+  ══════════════════════════════════════════════════════════════════════════════
+
+  Pour réactiver cette section :
+    1. Retirer les balises de commentaire HTML <!-- et -- >
+    2. Ajouter le lien de navigation dans la <nav> :
+         <li><a href="#experience">
+           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+             <rect x="2" y="7" width="20" height="14" rx="2"/>
+             <path d="M16 7V5a2 2 0 0 0-4 0v2"/>
+           </svg>
+           Expérience
+         </a></li>
+    3. Mettre à jour le CSS des exp-card dans style.css si nécessaire
+
+  <section id="experience" style="position:relative;overflow:hidden;">
+    <svg style="position:absolute;right:0;top:50%;transform:translateY(-50%);pointer-events:none;opacity:0.04"
+         width="200" height="400" viewBox="0 0 200 400">
+      <rect x="20" y="20" width="160" height="360" fill="none" stroke="#789EC5" stroke-width="1.5" rx="4"/>
+      <rect x="50" y="50" width="100" height="300" fill="none" stroke="#789EC5" stroke-width="1"/>
+      <line x1="100" y1="20" x2="100" y2="380" stroke="#789EC5" stroke-width="0.5" stroke-dasharray="4 4"/>
+    </svg>
+
+    <div class="exp-inner container">
+      <div class="sec-pre reveal">
+        <div class="sec-pre-line"></div>
+        <span class="sec-pre-text">Expérience</span>
+      </div>
+      <h2 class="sec-title reveal">Parcours professionnel</h2>
+
+      <div class="exp-grid">
+
+        <div class="exp-card reveal">
+          <div class="exp-left">
+            <div class="exp-period">2022 — Présent</div>
+            <span class="exp-badge current">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+              En poste
+            </span>
+          </div>
+          <div class="exp-body">
+            <div class="exp-role">Développeur Full-Stack Senior</div>
+            <div class="exp-company">Nom de l'entreprise</div>
+            <p class="exp-desc">Description du poste, missions principales, technologies utilisées, résultats obtenus.</p>
+          </div>
+        </div>
+
+        <div class="exp-card reveal">
+          <div class="exp-left">
+            <div class="exp-period">20XX — 20XX</div>
+            <span class="exp-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+              CDI
+            </span>
+          </div>
+          <div class="exp-body">
+            <div class="exp-role">Intitulé du poste</div>
+            <div class="exp-company">Nom de l'entreprise</div>
+            <p class="exp-desc">Description du poste, missions principales, technologies utilisées, résultats obtenus.</p>
+          </div>
+        </div>
+
+        <div class="exp-card reveal">
+          <div class="exp-left">
+            <div class="exp-period">20XX — 20XX</div>
+            <span class="exp-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+              CDI
+            </span>
+          </div>
+          <div class="exp-body">
+            <div class="exp-role">Intitulé du poste</div>
+            <div class="exp-company">Nom de l'entreprise</div>
+            <p class="exp-desc">Description du poste, missions principales, technologies utilisées, résultats obtenus.</p>
+          </div>
+        </div>
+
+        <div class="exp-card reveal">
+          <div class="exp-left">
+            <div class="exp-period">20XX — 20XX</div>
+            <span class="exp-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+              </svg>
+              Formation
+            </span>
+          </div>
+          <div class="exp-body">
+            <div class="exp-role">Intitulé du diplôme</div>
+            <div class="exp-company">Nom de l'établissement</div>
+            <p class="exp-desc">Description de la formation, spécialisation, mémoire ou projet de fin d'études.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  ══════════════════════════════════════════════════════════════════════════════
+  FIN SECTION EXPÉRIENCE COMMENTÉE
+  ══════════════════════════════════════════════════════════════════════════════
+  -->
+
+  <!-- ══════════════ CONTACT ══════════════ -->
+  <section id="contact" style="position:relative;overflow:hidden;">
+    <svg style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none;opacity:0.03" width="500" height="500" viewBox="0 0 500 500">
+      <circle cx="250" cy="250" r="230" fill="none" stroke="#789EC5" stroke-width="1.5"/>
+      <circle cx="250" cy="250" r="170" fill="none" stroke="#789EC5" stroke-width="1"/>
+      <circle cx="250" cy="250" r="110" fill="none" stroke="#789EC5" stroke-width="1"/>
+      <circle cx="250" cy="250" r="50"  fill="none" stroke="#789EC5" stroke-width="0.5"/>
+      <line x1="20"  y1="250" x2="480" y2="250" stroke="#789EC5" stroke-width="0.5"/>
+      <line x1="250" y1="20"  x2="250" y2="480" stroke="#789EC5" stroke-width="0.5"/>
+    </svg>
+
+    <div class="container">
+      <div class="contact-inner">
+        <div class="sec-pre reveal" style="justify-content:center">
+          <div class="sec-pre-line"></div>
+          <span class="sec-pre-text">Contact</span>
+          <div class="sec-pre-line"></div>
+        </div>
+        <h2 class="sec-title reveal" style="letter-spacing:-1.5px">Travaillons ensemble</h2>
+        <p class="contact-desc reveal">Disponible pour des missions freelance, du conseil technique ou un poste en CDI. N'hésitez pas à me contacter.</p>
+        <a href="mailto:gennafomine@gmail.com" class="contact-email reveal">gennafomine@gmail.com</a>
+
+        <div class="contact-socials reveal">
+          <a href="#" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub
+          </a>
+          <a href="#" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="#" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            Twitter / X
+          </a>
+          <a href="#" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            CV PDF
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer>
+    <span>© 2025 Genna Fomine</span>
+    <div style="display:flex;gap:12px;align-items:center;opacity:0.15">
+      <svg width="16" height="16" viewBox="0 0 16 16"><polygon points="8,1 15,14 1,14" fill="none" stroke="#789EC5" stroke-width="1"/></svg>
+      <svg width="14" height="14" viewBox="0 0 14 14"><rect x="1" y="1" width="12" height="12" fill="none" stroke="#789EC5" stroke-width="1"/></svg>
+      <svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="none" stroke="#789EC5" stroke-width="1"/></svg>
+    </div>
+    <span style="color:var(--blue);font-size:11px">Disponible pour nouvelles missions</span>
+  </footer>
+
+  <!-- ══════════════ JS ══════════════ -->
+  <script>
+    // ── Accordéon compétences
+    function toggleComp(id) {
+      const item = document.getElementById(id);
+      const isOpen = item.classList.contains('open');
+      // Ferme tous les autres
+      document.querySelectorAll('.comp-item.open').forEach(el => el.classList.remove('open'));
+      // Ouvre celui cliqué si il n'était pas déjà ouvert
+      if (!isOpen) {
+        item.classList.add('open');
+        // Anime les barres d'autoéval à l'ouverture
+        setTimeout(() => {
+          item.querySelectorAll('.eval-fill').forEach(b => { b.style.width = b.dataset.width + '%'; });
+        }, 50);
+      }
+    }
+
+    // ── Reveal on scroll
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // ── Nav active link
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY + 100;
+      sections.forEach(s => {
+        const link = document.querySelector(`.nav-links a[href="#${s.id}"]`);
+        if (!link) return;
+        if (scrollY >= s.offsetTop && scrollY < s.offsetTop + s.offsetHeight) link.classList.add('active');
+        else link.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
