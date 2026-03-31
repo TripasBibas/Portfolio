@@ -5,194 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Genna Fomine — Développeur Full-Stack</title>
   <meta name="description" content="Portfolio d'Genna Fomine, développeur full-stack spécialisé React, Node.js, architecture cloud.">
+   <script src="script.js"></script> 
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* ── Styles spécifiques à la section Compétences restructurée ── */
-
-    /* Accordéon compétences */
-    .comp-list { display: flex; flex-direction: column; gap: 16px; max-width: 1080px; margin: 0 auto; }
-
-    .comp-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border-soft);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: border-color 0.25s;
-    }
-    .comp-item:hover { border-color: var(--blue-dim); }
-    .comp-item.open { border-color: var(--blue-dim); }
-
-    /* En-tête de la compétence (cliquable) */
-    .comp-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 22px 28px;
-      cursor: pointer;
-      user-select: none;
-      transition: background 0.2s;
-    }
-    .comp-header:hover { background: rgba(120,158,197,0.04); }
-
-    .comp-header-icon {
-      width: 40px; height: 40px;
-      border-radius: var(--radius-sm);
-      background: var(--blue-pale);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .comp-header-icon svg { width: 20px; height: 20px; color: var(--blue); }
-
-    .comp-header-text { flex: 1; }
-    .comp-header-title {
-      font-family: var(--font-serif);
-      font-size: 18px;
-      color: var(--white);
-      margin-bottom: 2px;
-    }
-    .comp-header-sub { font-size: 12px; color: var(--text-dim); }
-
-    .comp-header-chevron {
-      width: 20px; height: 20px;
-      color: var(--text-dim);
-      transition: transform 0.3s ease;
-      flex-shrink: 0;
-    }
-    .comp-item.open .comp-header-chevron { transform: rotate(180deg); color: var(--blue); }
-
-    /* Corps accordéon */
-    .comp-body {
-      display: none;
-      border-top: 1px solid var(--border);
-      padding: 0;
-    }
-    .comp-item.open .comp-body { display: block; }
-
-    /* Grille des 6 axes */
-    .axes-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-    }
-
-    .axe {
-      padding: 24px 28px;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .axe:nth-child(3n) { border-right: none; }
-    .axe:nth-child(4),
-    .axe:nth-child(5),
-    .axe:nth-child(6) { border-bottom: none; }
-
-    .axe-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .axe-num {
-      width: 22px; height: 22px;
-      border-radius: 50%;
-      background: var(--blue-pale);
-      border: 1px solid rgba(120,158,197,0.2);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 10px;
-      color: var(--blue);
-      font-weight: 600;
-      flex-shrink: 0;
-    }
-
-    .axe-label {
-      font-size: 11px;
-      color: var(--blue);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-    }
-
-    .axe-content { font-size: 13px; color: var(--text-dim); line-height: 1.8; }
-    .axe-content strong { color: var(--text); font-weight: 600; }
-
-    /* Listes numérotées traces */
-    .trace-list { list-style: none; padding: 0; margin: 0; }
-    .trace-list li {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 8px;
-      font-size: 13px;
-      color: var(--text-dim);
-      line-height: 1.6;
-    }
-    .trace-list li:last-child { margin-bottom: 0; }
-    .trace-num {
-      min-width: 20px; height: 20px;
-      border-radius: 3px;
-      background: rgba(120,158,197,0.1);
-      color: var(--blue);
-      font-size: 10px;
-      font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    /* Autoévaluation — étoiles */
-    .autoeval {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .eval-row { display: flex; flex-direction: column; gap: 5px; }
-    .eval-label-row { display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
-    .eval-dim { color: var(--text-soft); }
-    .eval-score { color: var(--blue); font-weight: 600; }
-    .eval-track { height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
-    .eval-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--blue-dim), var(--blue));
-      border-radius: 2px;
-      width: 0;
-      transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    @media (max-width: 900px) {
-      .axes-grid { grid-template-columns: 1fr; }
-      .axe { border-right: none; border-bottom: 1px solid var(--border); }
-      .axe:last-child { border-bottom: none; }
-    }
-  </style>
 </head>
 <body>
 
-  <!-- ══════════════ NAV ══════════════ -->
   <nav>
     <div class="nav-logo">Genna <em>Fomine</em></div>
 
     <ul class="nav-links">
-      <!-- À propos : icône personne -->
       <li><a href="#about">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
         </svg>
         À propos
       </a></li>
-      <!-- Compétences : icône accolades -->
       <li><a href="#skills">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
         </svg>
         Compétences
       </a></li>
-      <!-- Projets : icône dossier -->
       <li><a href="#projects">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
         </svg>
         Projets
       </a></li>
-      <!-- Contact : icône mail -->
+
       <li><a href="#contact">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
@@ -207,7 +47,6 @@
     </div>
   </nav>
 
-  <!-- ══════════════ HERO ══════════════ -->
   <section id="hero">
     <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:hidden;" xmlns="http://www.w3.org/2000/svg">
       <circle cx="78%" cy="50%" r="280" fill="none" stroke="#789EC5" stroke-width="1" opacity="0.07"/>
@@ -307,7 +146,7 @@
     </div>
   </section>
 
-  <!-- ══════════════ ABOUT ══════════════ -->
+
   <section id="about">
     <div class="container">
       <div class="sec-pre reveal">
@@ -404,15 +243,7 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════════════════
-       COMPÉTENCES — Structure en 6 axes
-       Chaque compétence est un accordéon avec :
-         1. Mes traces (preuves numérotées)
-         2. Mes réussites (prouvées par les traces)
-         3. Mes échecs et moyens pour réussir
-         4. L'adaptation à d'autres situations
-         5. Mon autoévaluation
-  ══════════════════════════════════════════════════════ -->
+ 
   <section id="skills" style="position:relative;overflow:hidden;">
     <svg style="position:absolute;right:-40px;top:40px;pointer-events:none;opacity:0.05" width="300" height="300" viewBox="0 0 300 300">
       <polygon points="150,20 280,250 20,250" fill="none" stroke="#789EC5" stroke-width="1.5"/>
@@ -433,9 +264,7 @@
 
       <div class="comp-list">
 
-        <!-- ═══════════════════════════
-             COMPÉTENCE 1 — Développement Frontend React / Next.js
-        ═══════════════════════════ -->
+        
         <div class="comp-item reveal" id="comp-1">
           <div class="comp-header" onclick="toggleComp('comp-1')">
             <div class="comp-header-icon">
@@ -450,7 +279,7 @@
           <div class="comp-body">
             <div class="axes-grid">
 
-              <!-- Axe 1 : Mes traces -->
+             
               <div class="axe">
                 <div class="axe-header">
                   <div class="axe-num">1</div>
@@ -466,7 +295,7 @@
                 </div>
               </div>
 
-              <!-- Axe 2 : Mes réussites -->
+           
               <div class="axe">
                 <div class="axe-header">
                   <div class="axe-num">2</div>
@@ -481,7 +310,7 @@
                 </div>
               </div>
 
-              <!-- Axe 3 : Mes échecs -->
+           
               <div class="axe">
                 <div class="axe-header">
                   <div class="axe-num">3</div>
@@ -494,7 +323,6 @@
                 </div>
               </div>
 
-              <!-- Axe 4 : Adaptation -->
               <div class="axe">
                 <div class="axe-header">
                   <div class="axe-num">4</div>
@@ -537,9 +365,7 @@
           </div>
         </div>
 
-        <!-- ═══════════════════════════
-             COMPÉTENCE 2 — Développement Backend Node.js / API REST
-        ═══════════════════════════ -->
+        
         <div class="comp-item reveal" id="comp-2">
           <div class="comp-header" onclick="toggleComp('comp-2')">
             <div class="comp-header-icon">
@@ -621,9 +447,7 @@
           </div>
         </div>
 
-        <!-- ═══════════════════════════
-             COMPÉTENCE 3 — DevOps & Infrastructure Cloud (AWS / Docker)
-        ═══════════════════════════ -->
+        
         <div class="comp-item reveal" id="comp-3">
           <div class="comp-header" onclick="toggleComp('comp-3')">
             <div class="comp-header-icon">
@@ -705,11 +529,10 @@
           </div>
         </div>
 
-      </div><!-- /comp-list -->
+      </div>
     </div>
   </section>
 
-  <!-- ══════════════ PROJECTS ══════════════ -->
   <section id="projects" style="position:relative;overflow:hidden;">
     <svg style="position:absolute;left:-60px;top:-60px;pointer-events:none;opacity:0.04" width="350" height="350" viewBox="0 0 350 350">
       <circle cx="175" cy="175" r="160" fill="none" stroke="#789EC5" stroke-width="1.5"/>
@@ -832,9 +655,6 @@
   </section>
 
   <!--
-  ══════════════════════════════════════════════════════════════════════════════
-  SECTION EXPÉRIENCE — COMMENTÉE (à activer quand l'expérience sera disponible)
-  ══════════════════════════════════════════════════════════════════════════════
 
   Pour réactiver cette section :
     1. Retirer les balises de commentaire HTML <!-- et -- >
@@ -933,12 +753,8 @@
     </div>
   </section>
 
-  ══════════════════════════════════════════════════════════════════════════════
-  FIN SECTION EXPÉRIENCE COMMENTÉE
-  ══════════════════════════════════════════════════════════════════════════════
   -->
 
-  <!-- ══════════════ CONTACT ══════════════ -->
   <section id="contact" style="position:relative;overflow:hidden;">
     <svg style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none;opacity:0.03" width="500" height="500" viewBox="0 0 500 500">
       <circle cx="250" cy="250" r="230" fill="none" stroke="#789EC5" stroke-width="1.5"/>
@@ -982,7 +798,6 @@
     </div>
   </section>
 
-  <!-- ══════════════ FOOTER ══════════════ -->
   <footer>
     <span>© 2025 Genna Fomine</span>
     <div style="display:flex;gap:12px;align-items:center;opacity:0.15">
@@ -992,44 +807,5 @@
     </div>
     <span style="color:var(--blue);font-size:11px">Disponible pour nouvelles missions</span>
   </footer>
-
-  <!-- ══════════════ JS ══════════════ -->
-  <script>
-    // ── Accordéon compétences
-    function toggleComp(id) {
-      const item = document.getElementById(id);
-      const isOpen = item.classList.contains('open');
-      // Ferme tous les autres
-      document.querySelectorAll('.comp-item.open').forEach(el => el.classList.remove('open'));
-      // Ouvre celui cliqué si il n'était pas déjà ouvert
-      if (!isOpen) {
-        item.classList.add('open');
-        // Anime les barres d'autoéval à l'ouverture
-        setTimeout(() => {
-          item.querySelectorAll('.eval-fill').forEach(b => { b.style.width = b.dataset.width + '%'; });
-        }, 50);
-      }
-    }
-
-    // ── Reveal on scroll
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-    // ── Nav active link
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY + 100;
-      sections.forEach(s => {
-        const link = document.querySelector(`.nav-links a[href="#${s.id}"]`);
-        if (!link) return;
-        if (scrollY >= s.offsetTop && scrollY < s.offsetTop + s.offsetHeight) link.classList.add('active');
-        else link.classList.remove('active');
-      });
-    });
-  </script>
 </body>
 </html>
