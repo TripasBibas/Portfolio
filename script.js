@@ -1,24 +1,17 @@
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
+    entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
         }
     });
-}, { threshold: 0.1 });
+}, { threshold: 0.15 });
 
-document.querySelectorAll('.reveal').forEach((el) => {
-    observer.observe(el);
-});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-window.addEventListener('mousemove', (e) => {
-    const circles = document.querySelectorAll('.bg-circle');
-    const x = e.clientX / window.innerWidth;
-    const y = e.clientY / window.innerHeight;
-
-    circles.forEach((circle, index) => {
-        const speed = (index + 1) * 20;
-        const moveX = (x - 0.5) * speed;
-        const moveY = (y - 0.5) * speed;
-        circle.style.transform = `translate(${moveX}px, ${moveY}px)`;
+window.addEventListener('scroll', () => {
+    const shapes = document.querySelectorAll('.bg-shape');
+    let value = window.scrollY;
+    shapes.forEach((shape, i) => {
+        shape.style.transform = `translateY(${value * (0.1 * (i + 1))}px) rotate(${value * 0.05}deg)`;
     });
 });

@@ -8,15 +8,15 @@
 </head>
 <body>
 
-    <svg class="bg-deco" style="top:5%; left:2%; width:150px;"><circle cx="75" cy="75" r="60" fill="#E8F5E9" opacity="0.5"/></svg>
-    <svg class="bg-deco" style="top:25%; right:10%; width:80px;"><circle cx="40" cy="40" r="30" stroke="#4CAF50" fill="none" stroke-width="2"/></svg>
-    <svg class="bg-deco" style="top:50%; left:15%; width:120px;"><circle cx="60" cy="60" r="50" fill="#C8E6C9" opacity="0.3"/></svg>
-    <svg class="bg-deco" style="bottom:20%; right:5%; width:200px;"><circle cx="100" cy="100" r="80" stroke="#2E7D32" fill="none" stroke-width="1" stroke-dasharray="10"/></svg>
-    <svg class="bg-deco" style="bottom:5%; left:30%; width:60px;"><circle cx="30" cy="30" r="25" fill="#4CAF50" opacity="0.2"/></svg>
+    <svg class="bg-shape s1" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#E8F5E9"/></svg>
+    <svg class="bg-shape s2" viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" stroke="#4CAF50" fill="none" stroke-width="2"/></svg>
+    <svg class="bg-shape s3" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#C8E6C9" opacity="0.4"/></svg>
+    <svg class="bg-shape s4" viewBox="0 0 100 100"><circle cx="50" cy="50" r="20" fill="#2E7D32" opacity="0.1"/></svg>
+    <svg class="bg-shape s5" viewBox="0 0 100 100"><circle cx="50" cy="50" r="35" stroke="#A5D6A7" fill="none" stroke-width="1"/></svg>
 
     <header>
         <nav>
-            <p>Genna <strong>Fomine</strong></p>
+            <div class="logo">Genna <strong>Fomine</strong></div>
             <ul>
                 <li><a href="#about">À propos</a></li>
                 <li><a href="#skills">Compétences</a></li>
@@ -27,71 +27,88 @@
 
     <main>
         <section id="hero">
-            <article class="hero-content">
-                <div class="photo-wrapper">
-                    <img src="votre-photo.jpg" alt="Genna Fomine" class="profile-img">
-                    <h1>Genna<br>FOMINE</h1>
+            <div class="hero-container">
+                <div class="photo-frame">
+                    <img src="votre-photo.jpg" alt="">
                 </div>
-                <p class="subtitle">Architecte de solutions web & cloud · Lannion, France</p>
-                <nav>
-                    <a href="#skills" class="btn-main">Mes Compétences</a>
-                    <a href="#contact" class="btn-sub">Contact</a>
-                </nav>
-            </article>
+                <h1>Genna<br>FOMINE</h1>
+                <p>Architecte de solutions web & cloud · Lannion, France</p>
+                <div class="cta-group">
+                    <a href="#skills" class="btn btn-filled">Mes Compétences</a>
+                    <a href="#contact" class="btn btn-outline">Contact</a>
+                </div>
+            </div>
         </section>
 
-        <section id="skills" class="reveal">
-            <h2>Compétences</h2>
+        <section id="skills">
+            <h2 class="reveal">Compétences Techniques</h2>
+            
             <div class="skills-grid">
-                
-                <article class="skill-card">
-                    <h3>Développement (C / Java)</h3>
-                    <div class="skill-body">
-                        <p><strong>Traces:</strong> Sokoban C, App Java POO</p>
-                        <p><strong>Réussite:</strong> Code modulaire et robuste</p>
-                        <div class="progress-container">
-                            <span>Maîtrise</span>
-                            <div class="progress-bar"><div class="progress-fill" style="width: 70%;"></div></div>
-                        </div>
+                <article class="skill-card reveal">
+                    <h3>Développement Application</h3>
+                    <p class="lang">C / Java</p>
+                    <p><strong>Traces:</strong> Sokoban en C, Application Java POO.</p>
+                    <p><strong>Réussite:</strong> Code modulaire et robuste.</p>
+                    <div class="progress-wrap">
+                        <span>Maîtrise</span>
+                        <div class="progress-track"><div class="progress-fill" style="width: 70%;"></div></div>
                     </div>
                 </article>
 
-                <article class="skill-card">
-                    <h3>Algorithmique (Python)</h3>
-                    <div class="skill-body">
-                        <p><strong>Traces:</strong> Automatisation, Backtracking</p>
-                        <p><strong>Réussite:</strong> Optimisation des graphes</p>
-                        <div class="progress-container">
-                            <span>Maîtrise</span>
-                            <div class="progress-bar"><div class="progress-fill" style="width: 65%;"></div></div>
-                        </div>
+                <article class="skill-card reveal">
+                    <h3>Algorithmique</h3>
+                    <p class="lang">Python / Graphes</p>
+                    <p><strong>Traces:</strong> Automatisation Sokoban, Backtracking.</p>
+                    <p><strong>Réussite:</strong> Optimisation des solveurs.</p>
+                    <div class="progress-wrap">
+                        <span>Maîtrise</span>
+                        <div class="progress-track"><div class="progress-fill" style="width: 65%;"></div></div>
                     </div>
                 </article>
 
-                <article class="skill-card">
-                    <h3>Infrastructure (Docker)</h3>
-                    <div class="skill-body">
-                        <p><strong>Traces:</strong> Script Bash, Docker Compose</p>
-                        <p><strong>Réussite:</strong> Environnement reproductible</p>
-                        <div class="progress-container">
-                            <span>Maîtrise</span>
-                            <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
-                        </div>
+                <article class="skill-card reveal">
+                    <h3>Infrastructure & Ops</h3>
+                    <p class="lang">Docker / Bash</p>
+                    <p><strong>Traces:</strong> Script Bash, Docker Compose.</p>
+                    <p><strong>Réussite:</strong> Déploiement automatisé.</p>
+                    <div class="progress-wrap">
+                        <span>Maîtrise</span>
+                        <div class="progress-track"><div class="progress-fill" style="width: 75%;"></div></div>
                     </div>
                 </article>
 
-                <article class="skill-card">
-                    <h3>Bases de données (SQL)</h3>
-                    <div class="skill-body">
-                        <p><strong>Traces:</strong> Modélisation MCD, PL/pgSQL</p>
-                        <p><strong>Réussite:</strong> Requêtes complexes optimisées</p>
-                        <div class="progress-container">
-                            <span>Maîtrise</span>
-                            <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
-                        </div>
+                <article class="skill-card reveal">
+                    <h3>Bases de données</h3>
+                    <p class="lang">PostgreSQL</p>
+                    <p><strong>Traces:</strong> Modélisation MCD/MLD, PL/pgSQL.</p>
+                    <p><strong>Réussite:</strong> Schémas normalisés 3NF.</p>
+                    <div class="progress-wrap">
+                        <span>Maîtrise</span>
+                        <div class="progress-track"><div class="progress-fill" style="width: 80%;"></div></div>
                     </div>
                 </article>
 
+                <article class="skill-card reveal">
+                    <h3>Recueil de besoin</h3>
+                    <p class="lang">HTML / CSS / JS</p>
+                    <p><strong>Traces:</strong> Maquettage, Spécifications client.</p>
+                    <p><strong>Réussite:</strong> Interfaces ergonomiques.</p>
+                    <div class="progress-wrap">
+                        <span>Maîtrise</span>
+                        <div class="progress-track"><div class="progress-fill" style="width: 85%;"></div></div>
+                    </div>
+                </article>
+
+                <article class="skill-card reveal">
+                    <h3>Travail d'équipe</h3>
+                    <p class="lang">Git / Agile</p>
+                    <p><strong>Traces:</strong> Gestion de projet GitHub, Kanban.</p>
+                    <p><strong>Réussite:</strong> Coordination efficace.</p>
+                    <div class="progress-wrap">
+                        <span>Maîtrise</span>
+                        <div class="progress-track"><div class="progress-fill" style="width: 72%;"></div></div>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -102,6 +119,10 @@
             </address>
         </section>
     </main>
+
+    <footer>
+        <p>© 2025 Genna Fomine</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
