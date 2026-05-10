@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genna Fomine — Développeur Full-Stack</title>
+    <title>Genna Fomine — Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <svg class="bg-deco" style="top:5%; left:2%; width:150px;"><circle cx="75" cy="75" r="60" fill="#E8F5E9" opacity="0.5"/></svg>
+    <svg class="bg-deco" style="top:25%; right:10%; width:80px;"><circle cx="40" cy="40" r="30" stroke="#4CAF50" fill="none" stroke-width="2"/></svg>
+    <svg class="bg-deco" style="top:50%; left:15%; width:120px;"><circle cx="60" cy="60" r="50" fill="#C8E6C9" opacity="0.3"/></svg>
+    <svg class="bg-deco" style="bottom:20%; right:5%; width:200px;"><circle cx="100" cy="100" r="80" stroke="#2E7D32" fill="none" stroke-width="1" stroke-dasharray="10"/></svg>
+    <svg class="bg-deco" style="bottom:5%; left:30%; width:60px;"><circle cx="30" cy="30" r="25" fill="#4CAF50" opacity="0.2"/></svg>
 
     <header>
         <nav>
@@ -16,241 +22,86 @@
                 <li><a href="#skills">Compétences</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <aside>
-                <span>Disponible</span>
-            </aside>
         </nav>
     </header>
 
     <main>
         <section id="hero">
-            <svg class="deco-circle" style="top:5%; left:10%; width:100px; height:100px;"><circle cx="50" cy="50" r="40" fill="#E8F5E9"/></svg>
-            <svg class="deco-circle" style="bottom:10%; right:5%; width:150px; height:150px;"><circle cx="75" cy="75" r="60" stroke="#4CAF50" fill="none" stroke-width="2"/></svg>
-            
-            <article>
-                <h1>Genna<br>FOMINE</h1>
-                <p>Architecte de solutions web & cloud · Lannion, France</p>
-                <p>Je conçois des applications web performantes de bout en bout. Passionné par le code bien structuré et les produits durables.</p>
+            <article class="hero-content">
+                <div class="photo-wrapper">
+                    <img src="votre-photo.jpg" alt="Genna Fomine" class="profile-img">
+                    <h1>Genna<br>FOMINE</h1>
+                </div>
+                <p class="subtitle">Architecte de solutions web & cloud · Lannion, France</p>
                 <nav>
-                    <a href="#projects" class="btn-main">Voir mes projets</a>
-                    <a href="#contact" class="btn-sub">Me contacter</a>
+                    <a href="#skills" class="btn-main">Mes Compétences</a>
+                    <a href="#contact" class="btn-sub">Contact</a>
                 </nav>
             </article>
-
-            <aside class="info-card">
-                <svg class="deco-circle" style="top:-20px; right:-20px; width:60px; height:60px;"><circle cx="30" cy="30" r="25" fill="#C8E6C9" opacity="0.5"/></svg>
-                <p><strong>Localisation:</strong> Lannion, Bretagne</p>
-                <p><strong>Statut:</strong> En recherche d'alternance</p>
-                <p><strong>Réponse:</strong> Sous 24 heures</p>
-            </aside>
         </section>
 
-        <section id="about">
-            <h2>Qui suis-je ?</h2>
-            <article>
-                <p>Développeur full-stack débutant à l'IUT de Lannion, je construis des applications web de bout en bout — de l'interface utilisateur jusqu'à l'infrastructure cloud.</p>
-                <p>En dehors du code, je m'intéresse à la lecture, au design de systèmes et à l'automatisation.</p>
-                <ul class="chips">
-                    <li>PostgreSQL</li>
-                    <li>Docker</li>
-                    <li>Java</li>
-                    <li>C#</li>
-                    <li>Python</li>
-                </ul>
-            </article>
+        <section id="skills" class="reveal">
+            <h2>Compétences</h2>
+            <div class="skills-grid">
+                
+                <article class="skill-card">
+                    <h3>Développement (C / Java)</h3>
+                    <div class="skill-body">
+                        <p><strong>Traces:</strong> Sokoban C, App Java POO</p>
+                        <p><strong>Réussite:</strong> Code modulaire et robuste</p>
+                        <div class="progress-container">
+                            <span>Maîtrise</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 70%;"></div></div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="skill-card">
+                    <h3>Algorithmique (Python)</h3>
+                    <div class="skill-body">
+                        <p><strong>Traces:</strong> Automatisation, Backtracking</p>
+                        <p><strong>Réussite:</strong> Optimisation des graphes</p>
+                        <div class="progress-container">
+                            <span>Maîtrise</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 65%;"></div></div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="skill-card">
+                    <h3>Infrastructure (Docker)</h3>
+                    <div class="skill-body">
+                        <p><strong>Traces:</strong> Script Bash, Docker Compose</p>
+                        <p><strong>Réussite:</strong> Environnement reproductible</p>
+                        <div class="progress-container">
+                            <span>Maîtrise</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="skill-card">
+                    <h3>Bases de données (SQL)</h3>
+                    <div class="skill-body">
+                        <p><strong>Traces:</strong> Modélisation MCD, PL/pgSQL</p>
+                        <p><strong>Réussite:</strong> Requêtes complexes optimisées</p>
+                        <div class="progress-container">
+                            <span>Maîtrise</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
         </section>
 
-        <section id="skills">
-            <h2>Maîtrise technique</h2>
-            
-            <article class="comp-box">
-                <header>
-                    <h3>Développement d'une application (C / Java)</h3>
-                </header>
-                <section class="grid-details">
-                    <aside>
-                        <h4>Traces</h4>
-                        <ul>
-                            <li>Sokoban en C</li>
-                            <li>Amélioration Sokoban</li>
-                            <li>Application Java POO</li>
-                        </ul>
-                    </aside>
-                    <aside>
-                        <h4>Réussites</h4>
-                        <p>Jeu fonctionnel sans bug, code réutilisable.</p>
-                    </aside>
-                    <aside>
-                        <h4>Objectifs</h4>
-                        <p>Améliorer l'optimisation des procédures en C.</p>
-                    </aside>
-                    <aside>
-                        <h4>Évaluation</h4>
-                        <p>Java: 70% | C: 50%</p>
-                    </aside>
-                </section>
-            </article>
-
-            <article class="comp-box">
-                <header>
-                    <h3>Exploration algorithmique (Python / Graphes)</h3>
-                </header>
-                <section class="grid-details">
-                    <aside>
-                        <h4>Traces</h4>
-                        <ul>
-                            <li>Automatisation Sokoban</li>
-                            <li>Backtracking Cavalier</li>
-                            <li>Picross Python</li>
-                        </ul>
-                    </aside>
-                    <aside>
-                        <h4>Réussites</h4>
-                        <p>Automatisation validée et benchmark de propagation.</p>
-                    </aside>
-                    <aside>
-                        <h4>Objectifs</h4>
-                        <p>Mieux maîtriser le temps de codage en examen.</p>
-                    </aside>
-                    <aside>
-                        <h4>Évaluation</h4>
-                        <p>Graphes: 70% | Auto: 60%</p>
-                    </aside>
-                </section>
-            </article>
-
-            <article class="comp-box">
-                <header>
-                    <h3>Installation de poste (Bash / Docker)</h3>
-                </header>
-                <section class="grid-details">
-                    <aside>
-                        <h4>Traces</h4>
-                        <ul>
-                            <li>Script Bash installation</li>
-                            <li>Docker Compose (PHP/Postgres)</li>
-                            <li>Guide reproductible</li>
-                        </ul>
-                    </aside>
-                    <aside>
-                        <h4>Réussites</h4>
-                        <p>Environnement prêt en 10 min, reproductibilité testée.</p>
-                    </aside>
-                    <aside>
-                        <h4>Objectifs</h4>
-                        <p>Gérer les permissions multi-utilisateurs.</p>
-                    </aside>
-                    <aside>
-                        <h4>Évaluation</h4>
-                        <p>Docker: 70% | Bash: 60%</p>
-                    </aside>
-                </section>
-            </article>
-
-            <article class="comp-box">
-                <header>
-                    <h3>Base de données (PostgreSQL)</h3>
-                </header>
-                <section class="grid-details">
-                    <aside>
-                        <h4>Traces</h4>
-                        <ul>
-                            <li>Schéma MCD/MLD</li>
-                            <li>Requêtes complexes SQL</li>
-                            <li>Procédures PL/pgSQL</li>
-                        </ul>
-                    </aside>
-                    <aside>
-                        <h4>Réussites</h4>
-                        <p>Schéma normalisé (3NF), requêtes optimisées.</p>
-                    </aside>
-                    <aside>
-                        <h4>Objectifs</h4>
-                        <p>Sécurisation systématique via PDO.</p>
-                    </aside>
-                    <aside>
-                        <h4>Évaluation</h4>
-                        <p>Modélisation: 70% | SQL: 68%</p>
-                    </aside>
-                </section>
-            </article>
-
-            <article class="comp-box">
-                <header>
-                    <h3>Recueil de besoin (HTML / CSS)</h3>
-                </header>
-                <section class="grid-details">
-                    <aside>
-                        <h4>Traces</h4>
-                        <ul>
-                            <li>Prototype HTML/CSS</li>
-                            <li>Spécifications fonctionnelles</li>
-                            <li>Wireframes</li>
-                        </ul>
-                    </aside>
-                    <aside>
-                        <h4>Réussites</h4>
-                        <p>Validation client immédiate, structure modulaire.</p>
-                    </aside>
-                    <aside>
-                        <h4>Objectifs</h4>
-                        <p>Approche Mobile-First plus rigoureuse.</p>
-                    </aside>
-                    <aside>
-                        <h4>Évaluation</h4>
-                        <p>HTML: 80% | CSS: 75%</p>
-                    </aside>
-                </section>
-            </article>
-
-            <article class="comp-box">
-                <header>
-                    <h3>Travail d'équipe (Git / Kanban)</h3>
-                </header>
-                <section class="grid-details">
-                    <aside>
-                        <h4>Traces</h4>
-                        <ul>
-                            <li>Chef de groupe (Java)</li>
-                            <li>Gestion Git/GitHub</li>
-                            <li>Tableau Kanban</li>
-                        </ul>
-                    </aside>
-                    <aside>
-                        <h4>Réussites</h4>
-                        <p>Livraison à l'heure, aucun conflit Git majeur.</p>
-                    </aside>
-                    <aside>
-                        <h4>Objectifs</h4>
-                        <p>Équilibrer les charges de travail plus tôt.</p>
-                    </aside>
-                    <aside>
-                        <h4>Évaluation</h4>
-                        <p>Git: 72% | Coordination: 68%</p>
-                    </aside>
-                </section>
-            </article>
-        </section>
-
-        <section id="contact">
-            <svg class="deco-circle" style="top:20%; left:50%; width:200px; height:200px;"><circle cx="100" cy="100" r="90" fill="#E8F5E9" opacity="0.6"/></svg>
-            <h2>Travaillons ensemble</h2>
-            <p>Disponible pour une alternance.</p>
+        <section id="contact" class="reveal">
+            <h2>Contact</h2>
             <address>
                 <a href="mailto:gennafomine@gmail.com">gennafomine@gmail.com</a>
             </address>
-            <footer>
-                <nav>
-                    <a href="#">GitHub</a>
-                    <a href="#">LinkedIn</a>
-                </nav>
-            </footer>
         </section>
     </main>
-
-    <footer>
-        <p>© 2025 Genna Fomine — En recherche d'alternance</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>
