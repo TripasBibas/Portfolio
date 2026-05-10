@@ -6,17 +6,19 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+document.querySelectorAll('.reveal').forEach((el) => {
+    observer.observe(el);
+});
 
 window.addEventListener('mousemove', (e) => {
-    const circles = document.querySelectorAll('.bg-deco');
-    const mouseX = e.clientX;
-    const mouseY = e.clientY;
+    const circles = document.querySelectorAll('.bg-circle');
+    const x = e.clientX / window.innerWidth;
+    const y = e.clientY / window.innerHeight;
 
     circles.forEach((circle, index) => {
-        const speed = (index + 1) * 0.02;
-        const x = (window.innerWidth - mouseX * speed) / 100;
-        const y = (window.innerHeight - mouseY * speed) / 100;
-        circle.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        const speed = (index + 1) * 20;
+        const moveX = (x - 0.5) * speed;
+        const moveY = (y - 0.5) * speed;
+        circle.style.transform = `translate(${moveX}px, ${moveY}px)`;
     });
 });
