@@ -8,12 +8,6 @@
 </head>
 <body>
 
-    <svg class="bg-shape s1" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#E8F5E9"/></svg>
-    <svg class="bg-shape s2" viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" stroke="#4CAF50" fill="none" stroke-width="2"/></svg>
-    <svg class="bg-shape s3" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#C8E6C9" opacity="0.4"/></svg>
-    <svg class="bg-shape s4" viewBox="0 0 100 100"><circle cx="50" cy="50" r="20" fill="#2E7D32" opacity="0.1"/></svg>
-    <svg class="bg-shape s5" viewBox="0 0 100 100"><circle cx="50" cy="50" r="35" stroke="#A5D6A7" fill="none" stroke-width="1"/></svg>
-
     <header>
         <nav>
             <div class="logo">Genna <strong>Fomine</strong></div>
@@ -29,84 +23,96 @@
         <section id="hero">
             <div class="hero-container">
                 <div class="photo-frame">
-                    <img src="votre-photo.jpg" alt="">
+                    <img src="votre-photo.jpg" alt="Photo Genna Fomine">
                 </div>
                 <h1>Genna<br>FOMINE</h1>
                 <p>Architecte de solutions web & cloud · Lannion, France</p>
-                <div class="cta-group">
+                <nav class="cta-group">
                     <a href="#skills" class="btn btn-filled">Mes Compétences</a>
                     <a href="#contact" class="btn btn-outline">Contact</a>
-                </div>
+                </nav>
             </div>
         </section>
 
         <section id="skills">
-            <h2 class="reveal">Compétences Techniques</h2>
+            <h2 class="reveal">Compétences</h2>
             
             <div class="skills-grid">
                 <article class="skill-card reveal">
                     <h3>Développement Application</h3>
-                    <p class="lang">C / Java</p>
+                    <p class="tech-list">C / Java</p>
                     <p><strong>Traces:</strong> Sokoban en C, Application Java POO.</p>
                     <p><strong>Réussite:</strong> Code modulaire et robuste.</p>
-                    <div class="progress-wrap">
-                        <span>Maîtrise</span>
-                        <div class="progress-track"><div class="progress-fill" style="width: 70%;"></div></div>
+                    <div class="skill-meter">
+                        <span class="label">Niveau de maîtrise</span>
+                        <div class="track">
+                            <div class="fill" style="width: 70%;"></div>
+                        </div>
                     </div>
                 </article>
 
                 <article class="skill-card reveal">
                     <h3>Algorithmique</h3>
-                    <p class="lang">Python / Graphes</p>
+                    <p class="tech-list">Python / Graphes</p>
                     <p><strong>Traces:</strong> Automatisation Sokoban, Backtracking.</p>
                     <p><strong>Réussite:</strong> Optimisation des solveurs.</p>
-                    <div class="progress-wrap">
-                        <span>Maîtrise</span>
-                        <div class="progress-track"><div class="progress-fill" style="width: 65%;"></div></div>
+                    <div class="skill-meter">
+                        <span class="label">Niveau de maîtrise</span>
+                        <div class="track">
+                            <div class="fill" style="width: 65%;"></div>
+                        </div>
                     </div>
                 </article>
 
                 <article class="skill-card reveal">
                     <h3>Infrastructure & Ops</h3>
-                    <p class="lang">Docker / Bash</p>
+                    <p class="tech-list">Docker / Bash</p>
                     <p><strong>Traces:</strong> Script Bash, Docker Compose.</p>
                     <p><strong>Réussite:</strong> Déploiement automatisé.</p>
-                    <div class="progress-wrap">
-                        <span>Maîtrise</span>
-                        <div class="progress-track"><div class="progress-fill" style="width: 75%;"></div></div>
+                    <div class="skill-meter">
+                        <span class="label">Niveau de maîtrise</span>
+                        <div class="track">
+                            <div class="fill" style="width: 75%;"></div>
+                        </div>
                     </div>
                 </article>
 
                 <article class="skill-card reveal">
                     <h3>Bases de données</h3>
-                    <p class="lang">PostgreSQL</p>
+                    <p class="tech-list">PostgreSQL</p>
                     <p><strong>Traces:</strong> Modélisation MCD/MLD, PL/pgSQL.</p>
                     <p><strong>Réussite:</strong> Schémas normalisés 3NF.</p>
-                    <div class="progress-wrap">
-                        <span>Maîtrise</span>
-                        <div class="progress-track"><div class="progress-fill" style="width: 80%;"></div></div>
+                    <div class="skill-meter">
+                        <span class="label">Niveau de maîtrise</span>
+                        <div class="track">
+                            <div class="fill" style="width: 80%;"></div>
+                        </div>
                     </div>
                 </article>
 
                 <article class="skill-card reveal">
                     <h3>Recueil de besoin</h3>
-                    <p class="lang">HTML / CSS / JS</p>
+                    <p class="tech-list">HTML / CSS / JS</p>
                     <p><strong>Traces:</strong> Maquettage, Spécifications client.</p>
                     <p><strong>Réussite:</strong> Interfaces ergonomiques.</p>
-                    <div class="progress-wrap">
-                        <span>Maîtrise</span>
-                        <div class="progress-track"><div class="progress-fill" style="width: 85%;"></div></div>
+                    <div class="skill-meter">
+                        <span class="label">Niveau de maîtrise</span>
+                        <div class="track">
+                            <div class="fill" style="width: 85%;"></div>
+                        </div>
                     </div>
                 </article>
 
                 <article class="skill-card reveal">
                     <h3>Travail d'équipe</h3>
-                    <p class="lang">Git / Agile</p>
+                    <p class="tech-list">Git / Agile</p>
                     <p><strong>Traces:</strong> Gestion de projet GitHub, Kanban.</p>
                     <p><strong>Réussite:</strong> Coordination efficace.</p>
-                    <div class="progress-wrap">
-                        <span>Maîtrise</span>
-                        <div class="progress-track"><div class="progress-fill" style="width: 72%;"></div></div>
+                    <div class="skill-meter">
+                        <span class="label">Niveau de maîtrise</span>
+                        <div class="track">
+                            <div class="fill" style="width: 72%;"></div>
+                        </div>
                     </div>
                 </article>
             </div>
