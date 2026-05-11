@@ -1,135 +1,441 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genna Fomine — Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Genna Fomine — Développeur</title>
+  <meta name="description" content="Portfolio de Genna Fomine, développeur en formation à l'IUT de Lannion.">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">Genna <strong>Fomine</strong></div>
-            <ul>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#skills">Compétences</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+<nav>
+  <span class="nav-logo">Genna <em>Fomine</em></span>
+  <ul>
+    <li><a href="#about">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      À propos
+    </a></li>
+    <li><a href="#skills">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      Compétences
+    </a></li>
+    <li><a href="#projects">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+      Projets
+    </a></li>
+    <li><a href="#contact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Contact
+    </a></li>
+  </ul>
+  <span class="nav-status">
+    <span class="status-dot"></span>
+    Disponible
+  </span>
+</nav>
+
+<section id="hero">
+  <svg class="hero-deco" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <circle cx="720" cy="300" r="260" fill="none" stroke="#2E7D32" stroke-width="1.5" opacity="0.12"/>
+    <circle cx="720" cy="300" r="180" fill="none" stroke="#388E3C" stroke-width="1" opacity="0.1"/>
+    <circle cx="720" cy="300" r="100" fill="none" stroke="#43A047" stroke-width="1" opacity="0.08"/>
+    <circle cx="720" cy="300" r="40" fill="#A5D6A7" opacity="0.2"/>
+    <circle cx="100" cy="100" r="60" fill="none" stroke="#43A047" stroke-width="1" opacity="0.1"/>
+    <circle cx="100" cy="100" r="30" fill="#C8E6C9" opacity="0.25"/>
+    <circle cx="820" cy="520" r="45" fill="none" stroke="#2E7D32" stroke-width="1" opacity="0.1"/>
+    <circle cx="820" cy="520" r="20" fill="#A5D6A7" opacity="0.2"/>
+    <circle cx="50" cy="450" r="80" fill="none" stroke="#388E3C" stroke-width="1" opacity="0.08"/>
+    <circle cx="400" cy="560" r="35" fill="#C8E6C9" opacity="0.15"/>
+    <circle cx="600" cy="70" r="25" fill="#A5D6A7" opacity="0.2"/>
+    <circle cx="200" cy="510" r="15" fill="#66BB6A" opacity="0.25"/>
+    <circle cx="850" cy="150" r="18" fill="#81C784" opacity="0.18"/>
+    <circle cx="300" cy="30" r="12" fill="#C8E6C9" opacity="0.2"/>
+  </svg>
+
+  <article class="hero-content">
+    <p class="eyebrow">Développeur en formation</p>
+    <h1>Genna<br><em>Fomine</em></h1>
+    <p class="hero-role">Étudiant à l'IUT de Lannion · Bretagne, France</p>
+    <p class="hero-desc">Je conçois des applications et des interfaces web, passionné par le code bien structuré et les produits durables.</p>
+    <p class="hero-actions">
+      <a href="#projects" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        Voir mes projets
+      </a>
+      <a href="#contact" class="btn-outline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Me contacter
+      </a>
+    </p>
+  </article>
+
+  <article class="hero-card">
+    <svg class="card-deco-tl" viewBox="0 0 140 140"><circle cx="70" cy="70" r="60" fill="none" stroke="#2E7D32" stroke-width="1"/><circle cx="70" cy="70" r="40" fill="none" stroke="#43A047" stroke-width="1"/><circle cx="70" cy="70" r="18" fill="#C8E6C9" opacity="0.5"/></svg>
+    <svg class="card-deco-br" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="#388E3C" stroke-width="1"/><circle cx="50" cy="50" r="22" fill="#A5D6A7" opacity="0.4"/></svg>
+    <header class="card-header">
+      <span class="card-avatar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </span>
+      <p>
+        <strong>Genna Fomine</strong>
+        <span>Développeur · Lannion</span>
+      </p>
     </header>
+    <hr>
+    <dl>
+      <dt>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Localisation
+      </dt>
+      <dd>Lannion, Bretagne</dd>
+      <dt>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/></svg>
+        Statut
+      </dt>
+      <dd class="status-green">● En recherche d'alternance</dd>
+      <dt>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Réponse
+      </dt>
+      <dd>Sous 24 heures</dd>
+    </dl>
+  </article>
+</section>
 
-    <main>
-        <section id="hero">
-            <div class="hero-container">
-                <div class="photo-frame">
-                    <img src="votre-photo.jpg" alt="Photo Genna Fomine">
-                </div>
-                <h1>Genna<br>FOMINE</h1>
-                <p>Architecte de solutions web & cloud · Lannion, France</p>
-                <nav class="cta-group">
-                    <a href="#skills" class="btn btn-filled">Mes Compétences</a>
-                    <a href="#contact" class="btn btn-outline">Contact</a>
-                </nav>
-            </div>
-        </section>
+<section id="about">
+  <svg class="section-deco-right" viewBox="0 0 200 400"><circle cx="100" cy="80" r="70" fill="none" stroke="#2E7D32" stroke-width="1" opacity="0.1"/><circle cx="100" cy="80" r="40" fill="#C8E6C9" opacity="0.18"/><circle cx="160" cy="300" r="50" fill="none" stroke="#43A047" stroke-width="1" opacity="0.08"/><circle cx="160" cy="300" r="25" fill="#A5D6A7" opacity="0.15"/><circle cx="30" cy="200" r="20" fill="#81C784" opacity="0.12"/></svg>
+  <header class="section-header">
+    <span class="section-tag">À propos</span>
+    <h2>Qui suis-je ?</h2>
+  </header>
+  <article class="about-grid">
+    <section class="about-text">
+      <p>Développeur débutant à l'IUT de Lannion, je construis des applications web de bout en bout. J'attache autant d'importance à la <strong>qualité du code</strong> qu'à l'expérience finale de l'utilisateur.</p>
+      <p>Étudiant, j'ai eu l'occasion de travailler sur de nombreux projets universitaires, aider des personnes en informatique et contribuer à des projets open source personnels.</p>
+      <p>En dehors du code, je m'intéresse à la <strong>lecture</strong>, au design de systèmes et à l'automatisation. Je crois qu'un bon développeur est aussi un bon communicant.</p>
+      <ul class="chip-list">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          PostgreSQL
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          Docker
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 8C17 8 18 9 18 11C18 13.5 15.5 14 15.5 14"/><path d="M9.5 14C9.5 14 7 13.5 7 11C7 9 8 8 8 8"/><path d="M7 17H17"/><path d="M6 20H18"/><path d="M8 17V20"/><path d="M16 17V20"/></svg>
+          Java
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="9 6 2 12 9 18"/><line x1="14" y1="8" x2="20" y2="8"/><line x1="12" y1="11" x2="20" y2="11"/><line x1="14" y1="14" x2="20" y2="14"/><line x1="12" y1="17" x2="20" y2="17"/></svg>
+          C#
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2C9 2 7 4 7 7V10H12"/><path d="M12 10H17C19 10 21 12 21 14V17C21 20 19 22 16 22C13 22 12 20 12 17V14H7"/><path d="M7 14C5 14 3 12 3 10V7C3 4 5 2 8 2"/><circle cx="9.5" cy="6.5" r="0.5" fill="currentColor"/><circle cx="14.5" cy="17.5" r="0.5" fill="currentColor"/></svg>
+          Python
+        </li>
+      </ul>
+    </section>
+    <section class="about-stats">
+      <article class="stat-card">
+        <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+        <p><strong>Débutant</strong><span>Confirmé</span></p>
+      </article>
+      <article class="stat-card">
+        <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></span>
+        <p><strong>12</strong><span>Projets livrés</span></p>
+      </article>
+      <article class="stat-card">
+        <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        <p><strong>3</strong><span>Langues parlées</span></p>
+      </article>
+      <article class="stat-card">
+        <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></span>
+        <p><strong>100<sup>+</sup></strong><span>Commits cette année</span></p>
+      </article>
+    </section>
+  </article>
+</section>
 
-        <section id="skills">
-            <h2 class="reveal">Compétences</h2>
-            
-            <div class="skills-grid">
-                <article class="skill-card reveal">
-                    <h3>Développement Application</h3>
-                    <p class="tech-list">C / Java</p>
-                    <p><strong>Traces:</strong> Sokoban en C, Application Java POO.</p>
-                    <p><strong>Réussite:</strong> Code modulaire et robuste.</p>
-                    <div class="skill-meter">
-                        <span class="label">Niveau de maîtrise</span>
-                        <div class="track">
-                            <div class="fill" style="width: 70%;"></div>
-                        </div>
-                    </div>
-                </article>
+<section id="skills">
+  <svg class="section-deco-left" viewBox="0 0 180 500"><circle cx="80" cy="100" r="65" fill="none" stroke="#2E7D32" stroke-width="1" opacity="0.1"/><circle cx="80" cy="100" r="38" fill="#C8E6C9" opacity="0.15"/><circle cx="30" cy="300" r="45" fill="none" stroke="#43A047" stroke-width="1" opacity="0.08"/><circle cx="30" cy="300" r="20" fill="#A5D6A7" opacity="0.18"/><circle cx="120" cy="430" r="30" fill="none" stroke="#388E3C" stroke-width="1" opacity="0.1"/><circle cx="120" cy="430" r="14" fill="#C8E6C9" opacity="0.2"/></svg>
+  <header class="section-header">
+    <span class="section-tag">Compétences</span>
+    <h2>Maîtrise technique</h2>
+  </header>
 
-                <article class="skill-card reveal">
-                    <h3>Algorithmique</h3>
-                    <p class="tech-list">Python / Graphes</p>
-                    <p><strong>Traces:</strong> Automatisation Sokoban, Backtracking.</p>
-                    <p><strong>Réussite:</strong> Optimisation des solveurs.</p>
-                    <div class="skill-meter">
-                        <span class="label">Niveau de maîtrise</span>
-                        <div class="track">
-                            <div class="fill" style="width: 65%;"></div>
-                        </div>
-                    </div>
-                </article>
+  <article class="comp-item">
+    <header class="comp-header">
+      <span class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+      <p><strong>Développement d'une application</strong><span>Langages utilisés : C · Java</span></p>
+    </header>
+    <section class="axes-grid">
+      <article class="axe">
+        <header><span class="axe-num">1</span><strong>Mes traces</strong></header>
+        <ol><li>Développement du jeu Sokoban en C</li><li>Amélioration du jeu de Sokoban</li><li>Conception d'une application Java orientée objet</li></ol>
+      </article>
+      <article class="axe">
+        <header><span class="axe-num">2</span><strong>Mes réussites</strong></header>
+        <p><strong>Jeu parfaitement fonctionnel</strong> livré dans les délais sans aucun bug dans la version 2.</p>
+        <p><strong>Code réutilisable</strong> : structures de données en C réemployées dans deux projets suivants.</p>
+      </article>
+      <article class="axe">
+        <header><span class="axe-num">3</span><strong>Mes échecs &amp; objectifs</strong></header>
+        <p><strong>Code C mal optimisé</strong> : les procédures de déplacement et de undo pouvaient être faites plus simplement. <em>Objectif : faire de la meilleure optimisation dans les projets futurs.</em></p>
+      </article>
+      <article class="axe">
+        <header><span class="axe-num">4</span><strong>Adaptation à d'autres situations</strong></header>
+        <p>La rigueur acquise en <strong>C</strong> est directement transposable à <strong>C++</strong> dans le futur.</p>
+        <p>La logique objet Java s'applique naturellement à <strong>C#</strong> ou tout autre langage orienté objet.</p>
+      </article>
+      <article class="axe axe-wide">
+        <header><span class="axe-num">5</span><strong>Mon autoévaluation</strong></header>
+        <ul class="eval-list">
+          <li><span>Programmation C</span><span class="eval-score">50%</span><span class="eval-track"><span class="eval-fill" data-width="50"></span></span></li>
+          <li><span>Programmation Java</span><span class="eval-score">70%</span><span class="eval-track"><span class="eval-fill" data-width="70"></span></span></li>
+          <li><span>Conception</span><span class="eval-score">60%</span><span class="eval-track"><span class="eval-fill" data-width="60"></span></span></li>
+          <li><span>Tests &amp; débogage</span><span class="eval-score">40%</span><span class="eval-track"><span class="eval-fill" data-width="40"></span></span></li>
+        </ul>
+      </article>
+    </section>
+  </article>
 
-                <article class="skill-card reveal">
-                    <h3>Infrastructure & Ops</h3>
-                    <p class="tech-list">Docker / Bash</p>
-                    <p><strong>Traces:</strong> Script Bash, Docker Compose.</p>
-                    <p><strong>Réussite:</strong> Déploiement automatisé.</p>
-                    <div class="skill-meter">
-                        <span class="label">Niveau de maîtrise</span>
-                        <div class="track">
-                            <div class="fill" style="width: 75%;"></div>
-                        </div>
-                    </div>
-                </article>
+  <article class="comp-item">
+    <header class="comp-header">
+      <span class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><line x1="7" y1="11" x2="17" y2="6"/><line x1="7" y1="13" x2="17" y2="18"/></svg></span>
+      <p><strong>Exploration algorithmique d'un problème</strong><span>Langages et outils utilisés : C · Python · Théorie des Graphes</span></p>
+    </header>
+    <section class="axes-grid">
+      <article class="axe">
+        <header><span class="axe-num">1</span><strong>Mes traces</strong></header>
+        <ol><li>Automatisation complète du jeu Sokoban en C</li><li>Implémentation de l'algorithme de Backtracking en C sur le problème du cavalier</li><li>Implémentation de l'algorithme de Propagation en Python sur le solveur Picross</li></ol>
+      </article>
+      <article class="axe">
+        <header><span class="axe-num">2</span><strong>Mes réussites</strong></header>
+        <p><strong>Automatisation fonctionnelle</strong> : l'algorithme passe tous les tests.</p>
+        <p><strong>Propagation fonctionnelle</strong> avec benchmark des deux algorithmes pour comparer les résultats.</p>
+      </article>
+      <article class="axe">
+        <header><span class="axe-num">3</span><strong>Mes échecs &amp; objectifs</strong></header>
+        <p><strong>Backtracking fonctionne mal</strong> dans le problème du cavalier. <em>Objectif : faire attention à la méthode utilisée dès le début.</em></p>
+        <p><strong>Trop de temps perdu</strong> dans la création du code. <em>Objectif : mieux maîtriser le temps de codage.</em></p>
+      </article>
+      <article class="axe">
+        <header><span class="axe-num">4</span><strong>Adaptation à d'autres situations</strong></header>
+        <p>La théorie des graphes s'applique aux <strong>réseaux sociaux</strong>, <strong>routage réseau</strong> ou <strong>jeux vidéo</strong> (pathfinding).</p>
+        <p>Les algorithmes d'automatisation simplifient les tâches pénibles en <strong>entreprise</strong>.</p>
+      </article>
+      <article class="axe axe-wide">
+        <header><span class="axe-num">5</span><strong>Mon autoévaluation</strong></header>
+        <ul class="eval-list">
+          <li><span>Automatisation</span><span class="eval-score">60%</span><span class="eval-track"><span class="eval-fill" data-width="60"></span></span></li>
+          <li><span>Modélisation par graphes</span><span class="eval-score">70%</span><span class="eval-track"><span class="eval-fill" data-width="70"></span></span></li>
+          <li><span>Algorithmes de plus court chemin</span><span class="eval-score">50%</span><span class="eval-track"><span class="eval-fill" data-width="50"></span></span></li>
+        </ul>
+      </article>
+    </section>
+  </article>
 
-                <article class="skill-card reveal">
-                    <h3>Bases de données</h3>
-                    <p class="tech-list">PostgreSQL</p>
-                    <p><strong>Traces:</strong> Modélisation MCD/MLD, PL/pgSQL.</p>
-                    <p><strong>Réussite:</strong> Schémas normalisés 3NF.</p>
-                    <div class="skill-meter">
-                        <span class="label">Niveau de maîtrise</span>
-                        <div class="track">
-                            <div class="fill" style="width: 80%;"></div>
-                        </div>
-                    </div>
-                </article>
+  <article class="comp-item">
+    <header class="comp-header">
+      <span class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+      <p><strong>Installation d'un poste pour le développement</strong><span>Outils utilisés : Bash · PHP · Docker</span></p>
+    </header>
+    <section class="axes-grid">
+      <article class="axe">
+        <header><span class="axe-num">1</span><strong>Mes traces</strong></header>
+        <ol><li>Script Bash d'installation automatisée d'un environnement de développement (Linux)</li><li>Configuration d'un serveur PHP local avec Apache et gestion des virtual hosts</li><li>Mise en place d'un environnement Docker Compose : PHP + PostgreSQL + Nginx</li><li>Rédaction d'un guide d'installation reproductible pour les membres de l'équipe</li></ol>
+      </article>
+      <article class="axe">
+        <header><span class="axe-num">2</span><strong>Mes réussites</strong></header>
+        <p><strong>Environnement Docker fonctionnel</strong> en moins de 10 minutes sur une nouvelle machine (T1, T3).</p>
+        <p><strong>Reproductibilité garantie</strong> : guide suivi par 3 camarades sans problème (T4).</p>
+        <p><strong>Isolation des dépendances</strong> via Docker, évitant les conflits de versions PHP (T3).</p>
+      </article>
+      <article class="axe">
+        <header><span class="axe-num">3</span><strong>Mes échecs &amp; objectifs</strong></header>
+        <p><strong>Permissions Linux mal configurées</strong> (T1) : échec sur la machine d'un camarade. → <em>Objectif : tester sur plusieurs profils utilisateurs.</em></p>
+        <p><strong>Docker Compose trop monolithique</strong> (T3). → <em>Objectif : adopter la séparation dev/prod avec des fichiers override.</em></p>
+      </article>
+      <article class="axe">
+        <header><span class="axe-num">4</span><strong>Adaptation à d'autres situations</strong></header>
+        <p>Ces compétences s'appliquent à tout environnement : <strong>Node.js, Python</strong> ou stacks plus complexes.</p>
+        <p>Bash et Docker sont un socle pour la <strong>CI/CD</strong> et le <strong>déploiement cloud</strong>.</p>
+      </article>
+      <article class="axe axe-wide">
+        <header><span class="axe-num">5</span><strong>Mon autoévaluation</strong></header>
+        <ul class="eval-list">
+          <li><span>Scripting Bash</span><span class="eval-score">60%</span><span class="eval-track"><span class="eval-fill" data-width="60"></span></span></li>
+          <li><span>Configuration PHP / Apache</span><span class="eval-score">65%</span><span class="eval-track"><span class="eval-fill" data-width="65"></span></span></li>
+          <li><span>Docker &amp; Docker Compose</span><span class="eval-score">70%</span><span class="eval-track"><span class="eval-fill" data-width="70"></span></span></li>
+          <li><span>Documentation &amp; reproductibilité</span><span class="eval-score">72%</span><span class="eval-track"><span class="eval-fill" data-width="72"></span></span></li>
+        </ul>
+      </article>
+    </section>
+  </article>
 
-                <article class="skill-card reveal">
-                    <h3>Recueil de besoin</h3>
-                    <p class="tech-list">HTML / CSS / JS</p>
-                    <p><strong>Traces:</strong> Maquettage, Spécifications client.</p>
-                    <p><strong>Réussite:</strong> Interfaces ergonomiques.</p>
-                    <div class="skill-meter">
-                        <span class="label">Niveau de maîtrise</span>
-                        <div class="track">
-                            <div class="fill" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                </article>
+  <article class="comp-item">
+    <header class="comp-header">
+      <span class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>
+      <p><strong>Exploitation d'une base de données</strong><span>Outil utilisé : PostgreSQL</span></p>
+    </header>
+    <section class="axes-grid">
+      <article class="axe">
+        <header><span class="axe-num">1</span><strong>Mes traces</strong></header>
+        <ol><li>Conception d'un schéma relationnel (MCD → MLD) pour une application de gestion de stocks</li><li>Écriture de requêtes SQL complexes : jointures multiples, sous-requêtes, agrégations</li><li>Création de vues, triggers et procédures stockées en PL/pgSQL</li><li>Intégration de PostgreSQL dans une application PHP via PDO</li></ol>
+      </article>
+      <article class="axe">
+        <header><span class="axe-num">2</span><strong>Mes réussites</strong></header>
+        <p><strong>Schéma normalisé (3NF)</strong> validé par l'enseignant, sans redondance (T1).</p>
+        <p><strong>Requêtes optimisées</strong> grâce à l'ajout d'index (T2).</p>
+        <p><strong>Application CRUD complète</strong> PHP + PostgreSQL opérationnelle (T4).</p>
+      </article>
+      <article class="axe">
+        <header><span class="axe-num">3</span><strong>Mes échecs &amp; objectifs</strong></header>
+        <p><strong>Injection SQL</strong> dans une première version (T4). → <em>Objectif : utiliser systématiquement les requêtes préparées PDO.</em></p>
+        <p><strong>Triggers mal documentés</strong> (T3). → <em>Objectif : toujours commenter les triggers avec leur cas d'usage.</em></p>
+      </article>
+      <article class="axe">
+        <header><span class="axe-num">4</span><strong>Adaptation à d'autres situations</strong></header>
+        <p>Les compétences SQL sont transférables à <strong>MySQL, MariaDB, SQLite</strong> ou des ORM comme <strong>Prisma, Sequelize</strong>.</p>
+        <p>La logique relationnelle aide à comprendre les bases <strong>NoSQL</strong> (MongoDB, Redis).</p>
+      </article>
+      <article class="axe axe-wide">
+        <header><span class="axe-num">5</span><strong>Mon autoévaluation</strong></header>
+        <ul class="eval-list">
+          <li><span>Modélisation relationnelle (MCD/MLD)</span><span class="eval-score">70%</span><span class="eval-track"><span class="eval-fill" data-width="70"></span></span></li>
+          <li><span>Requêtes SQL avancées</span><span class="eval-score">68%</span><span class="eval-track"><span class="eval-fill" data-width="68"></span></span></li>
+          <li><span>PL/pgSQL (triggers, procédures)</span><span class="eval-score">50%</span><span class="eval-track"><span class="eval-fill" data-width="50"></span></span></li>
+          <li><span>Sécurité &amp; intégration applicative</span><span class="eval-score">55%</span><span class="eval-track"><span class="eval-fill" data-width="55"></span></span></li>
+        </ul>
+      </article>
+    </section>
+  </article>
 
-                <article class="skill-card reveal">
-                    <h3>Travail d'équipe</h3>
-                    <p class="tech-list">Git / Agile</p>
-                    <p><strong>Traces:</strong> Gestion de projet GitHub, Kanban.</p>
-                    <p><strong>Réussite:</strong> Coordination efficace.</p>
-                    <div class="skill-meter">
-                        <span class="label">Niveau de maîtrise</span>
-                        <div class="track">
-                            <div class="fill" style="width: 72%;"></div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
+  <article class="comp-item">
+    <header class="comp-header">
+      <span class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+      <p><strong>Recueil de besoin</strong><span>Outils utilisés : HTML · CSS</span></p>
+    </header>
+    <section class="axes-grid">
+      <article class="axe">
+        <header><span class="axe-num">1</span><strong>Mes traces</strong></header>
+        <ol><li>Prototype HTML/CSS d'interface web à partir d'un cahier des charges client</li><li>Rédaction d'un document de spécifications fonctionnelles suite à un entretien utilisateur</li><li>Création de maquettes (wireframes) pour valider la structure avant développement</li><li>Présentation orale du prototype et intégration des retours client</li></ol>
+      </article>
+      <article class="axe">
+        <header><span class="axe-num">2</span><strong>Mes réussites</strong></header>
+        <p><strong>Prototype validé</strong> dès la première présentation client (T1, T3).</p>
+        <p><strong>Spécifications complètes</strong> couvrant tous les cas d'usage (T2).</p>
+        <p><strong>Intégration rapide des retours</strong> en moins d'une séance (T4).</p>
+      </article>
+      <article class="axe">
+        <header><span class="axe-num">3</span><strong>Mes échecs &amp; objectifs</strong></header>
+        <p><strong>Questions d'entretien trop fermées</strong> (T2). → <em>Objectif : utiliser des questions ouvertes et le "5 pourquoi".</em></p>
+        <p><strong>CSS non responsive</strong> sur le prototype (T1). → <em>Objectif : adopter l'approche mobile-first dès la conception.</em></p>
+      </article>
+      <article class="axe">
+        <header><span class="axe-num">4</span><strong>Adaptation à d'autres situations</strong></header>
+        <p>La démarche s'applique à tout projet : <strong>application mobile, logiciel métier</strong> ou refonte de système.</p>
+        <p>HTML/CSS sont le socle pour aller vers <strong>React, Vue.js</strong> ou <strong>Figma</strong>.</p>
+      </article>
+      <article class="axe axe-wide">
+        <header><span class="axe-num">5</span><strong>Mon autoévaluation</strong></header>
+        <ul class="eval-list">
+          <li><span>HTML sémantique</span><span class="eval-score">80%</span><span class="eval-track"><span class="eval-fill" data-width="80"></span></span></li>
+          <li><span>CSS &amp; mise en page (Flexbox, Grid)</span><span class="eval-score">75%</span><span class="eval-track"><span class="eval-fill" data-width="75"></span></span></li>
+          <li><span>Analyse &amp; rédaction de spécifications</span><span class="eval-score">65%</span><span class="eval-track"><span class="eval-fill" data-width="65"></span></span></li>
+          <li><span>Communication avec le client</span><span class="eval-score">60%</span><span class="eval-track"><span class="eval-fill" data-width="60"></span></span></li>
+        </ul>
+      </article>
+    </section>
+  </article>
 
-        <section id="contact" class="reveal">
-            <h2>Contact</h2>
-            <address>
-                <a href="mailto:gennafomine@gmail.com">gennafomine@gmail.com</a>
-            </address>
-        </section>
-    </main>
+  <article class="comp-item">
+    <header class="comp-header">
+      <span class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+      <p><strong>Organisation d'un travail d'équipe</strong><span>Coordination, communication et gestion de projet collaboratif</span></p>
+    </header>
+    <section class="axes-grid">
+      <article class="axe">
+        <header><span class="axe-num">1</span><strong>Mes traces</strong></header>
+        <ol><li>Chef de groupe sur un projet Java à 4 personnes (6 semaines)</li><li>Utilisation de Git/GitHub pour la gestion des branches et revues de code</li><li>Tenue d'un tableau Kanban (Trello) avec suivi des tâches et délais</li><li>Rédaction de comptes rendus de réunion hebdomadaires</li></ol>
+      </article>
+      <article class="axe">
+        <header><span class="axe-num">2</span><strong>Mes réussites</strong></header>
+        <p><strong>Projet livré dans les délais</strong> malgré un changement de périmètre en semaine 4 (T1, T3).</p>
+        <p><strong>Zéro conflit Git majeur</strong> grâce à une convention de branches (T2).</p>
+        <p><strong>Décisions traçables</strong> : les comptes rendus ont permis de résoudre un désaccord (T4).</p>
+      </article>
+      <article class="axe">
+        <header><span class="axe-num">3</span><strong>Mes échecs &amp; objectifs</strong></header>
+        <p><strong>Répartition inégale</strong> en début de projet (T1). → <em>Objectif : faire un point bi-hebdomadaire et rééquilibrer.</em></p>
+        <p><strong>Communication trop informelle</strong> (T4). → <em>Objectif : systématiser les comptes rendus écrits.</em></p>
+      </article>
+      <article class="axe">
+        <header><span class="axe-num">4</span><strong>Adaptation à d'autres situations</strong></header>
+        <p>Ces compétences s'appliquent à tout contexte professionnel : <strong>Scrum, Kanban</strong>, projets en entreprise ou alternance.</p>
+        <p>La maîtrise de Git est un prérequis universel avec <strong>GitHub, GitLab ou Bitbucket</strong>.</p>
+      </article>
+      <article class="axe axe-wide">
+        <header><span class="axe-num">5</span><strong>Mon autoévaluation</strong></header>
+        <ul class="eval-list">
+          <li><span>Coordination &amp; répartition des tâches</span><span class="eval-score">68%</span><span class="eval-track"><span class="eval-fill" data-width="68"></span></span></li>
+          <li><span>Git en équipe (branches, PR, merge)</span><span class="eval-score">72%</span><span class="eval-track"><span class="eval-fill" data-width="72"></span></span></li>
+          <li><span>Outils de suivi (Kanban, Trello)</span><span class="eval-score">70%</span><span class="eval-track"><span class="eval-fill" data-width="70"></span></span></li>
+          <li><span>Communication écrite &amp; traçabilité</span><span class="eval-score">65%</span><span class="eval-track"><span class="eval-fill" data-width="65"></span></span></li>
+        </ul>
+      </article>
+    </section>
+  </article>
+</section>
 
-    <footer>
-        <p>© 2025 Genna Fomine</p>
-    </footer>
+<section id="projects">
+  <svg class="section-deco-right" viewBox="0 0 220 350"><circle cx="160" cy="80" r="55" fill="none" stroke="#2E7D32" stroke-width="1" opacity="0.1"/><circle cx="160" cy="80" r="30" fill="#C8E6C9" opacity="0.18"/><circle cx="40" cy="250" r="70" fill="none" stroke="#43A047" stroke-width="1" opacity="0.08"/><circle cx="40" cy="250" r="35" fill="#A5D6A7" opacity="0.15"/></svg>
+  <header class="section-header">
+    <span class="section-tag">Projets</span>
+    <h2>Réalisations récentes</h2>
+  </header>
+  <p class="projects-placeholder">Les projets seront ajoutés prochainement.</p>
+</section>
 
-    <script src="script.js"></script>
+<section id="contact">
+  <svg class="contact-deco" viewBox="0 0 500 500"><circle cx="250" cy="250" r="220" fill="none" stroke="#2E7D32" stroke-width="1.5" opacity="0.08"/><circle cx="250" cy="250" r="160" fill="none" stroke="#43A047" stroke-width="1" opacity="0.07"/><circle cx="250" cy="250" r="100" fill="none" stroke="#388E3C" stroke-width="1" opacity="0.06"/><circle cx="250" cy="250" r="50" fill="#C8E6C9" opacity="0.12"/><circle cx="250" cy="250" r="20" fill="#A5D6A7" opacity="0.18"/></svg>
+  <header class="section-header centered">
+    <span class="section-tag">Contact</span>
+    <h2>Travaillons ensemble</h2>
+  </header>
+  <p class="contact-desc">Disponible en tant qu'alternant. N'hésitez pas à me contacter !</p>
+  <a href="mailto:gennafomine@gmail.com" class="contact-email">gennafomine@gmail.com</a>
+  <nav class="contact-socials">
+    <a href="#" class="social-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      GitHub
+    </a>
+    <a href="#" class="social-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+    <a href="#" class="social-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      CV PDF
+    </a>
+  </nav>
+</section>
+
+<footer>
+  <span>© 2025 Genna Fomine</span>
+  <svg width="80" height="20" viewBox="0 0 80 20">
+    <circle cx="10" cy="10" r="7" fill="none" stroke="#2E7D32" stroke-width="1.2"/>
+    <circle cx="10" cy="10" r="3" fill="#A5D6A7"/>
+    <circle cx="40" cy="10" r="7" fill="none" stroke="#43A047" stroke-width="1.2"/>
+    <circle cx="40" cy="10" r="3" fill="#C8E6C9"/>
+    <circle cx="70" cy="10" r="7" fill="none" stroke="#388E3C" stroke-width="1.2"/>
+    <circle cx="70" cy="10" r="3" fill="#81C784"/>
+  </svg>
+  <span class="footer-status">En recherche d'une alternance</span>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
