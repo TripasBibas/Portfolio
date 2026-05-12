@@ -703,6 +703,10 @@ section:nth-child(even) { background: var(--green-ultra); }
   letter-spacing: -0.3px;
 }
 
+b{
+  color: var(--green-main);
+}
+
 @media (max-width: 860px) {
   .projects-grid { grid-template-columns: 1fr; }
 }
