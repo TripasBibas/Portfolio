@@ -80,6 +80,7 @@ nav {
   font-size: 20px;
   color: var(--black);
   letter-spacing: -0.5px;
+  transition: letter-spacing 2s ease-in-out 0.2s;
 }
 
 .nav-logo :hover{
