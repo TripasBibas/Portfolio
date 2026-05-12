@@ -75,11 +75,14 @@ nav {
   box-shadow: 0 2px 12px rgba(46,125,50,0.06);
 }
 
-.nav-logo span{
+.nav-logo{
   font-family: 'Arial Black', Arial, sans-serif;
   font-size: 20px;
   color: var(--black);
   letter-spacing: -0.5px;
+}
+
+.nav-logo span{
   transition: letter-spacing 2s ease-in-out 0.2s;
 }
 
