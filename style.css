@@ -95,7 +95,7 @@ nav {
 }
 
 .nav-logo :hover{
-  animation: Bounce 0.1ms ease-in-out1s infinite normal forwards;
+  animation: Bounce 0.1ms ease-in-out 1s infinite normal forwards;
 }
 
 
