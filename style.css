@@ -82,20 +82,8 @@ nav {
   letter-spacing: -0.5px;
 }
 
-@keyframes Bounce {
-  0%{
-    transform: translate(0px, 0px);
-  }50%{
-    transform: scale(3,5);
-    transform: translate(0px, -10px);
-  }100%{
-    transform: scale(5,3);
-    transform: translate(0px, 0px);
-  }
-}
-
 .nav-logo :hover{
-  animation: Bounce 0.1ms ease-in-out 1s infinite normal forwards;
+  letter-spacing: 10px;
 }
 
 
