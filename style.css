@@ -83,7 +83,7 @@ nav {
   
 }
 .nav-logo span{
-  transition: letter-spacing 0.5s ease-in-out 0.2s;
+  transition: letter-spacing 0.2s ease-in-out 0.2s;
 }
 .nav-logo span:hover{
   letter-spacing: 1px;
