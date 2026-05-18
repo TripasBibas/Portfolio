@@ -478,7 +478,9 @@ section:nth-child(even) { background: var(--green-ultra); }
 
 .stat-card span { font-size: 11px; color: var(--gray-soft); text-transform: uppercase; letter-spacing: 0.8px; }
 
-#skills { background: var(--green-ultra); }
+#diplome { background: var(--green-ultra); }
+
+#skills { background: var(--white); }
 
 #skills > .section-header { max-width: 1080px; margin: 0 auto 48px; }
 
@@ -667,7 +669,7 @@ section:nth-child(even) { background: var(--green-ultra); }
   transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-#projects { background: var(--white); }
+#projects { background: var(--green-ultra); }
 
 .projects-grid {
   display: grid;
@@ -719,7 +721,7 @@ b{
   .projects-grid { grid-template-columns: 1fr; }
 }
 
-#contact { background: var(--green-ultra); text-align: center; }
+#contact { background: var(--white); text-align: center; }
 
 .contact-deco {
   position: absolute;
