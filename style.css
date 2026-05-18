@@ -343,7 +343,7 @@ section:nth-child(even) { background: var(--green-ultra); }
 }
 
 .card-avatar {
-  width: 64px; height: 64px;
+  width: 128px; height: 128px;
   border-radius: 50%;
   background: var(--green-bg);
   border: 2px solid var(--green-pale);
