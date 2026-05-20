@@ -288,32 +288,30 @@
     <section class="axes-grid">
       <article class="axe">
         <header><span class="axe-num">1</span><strong>Mes traces</strong></header>
-        <ol><li>Script Bash d'installation automatisée d'un environnement de développement (Linux)</li><li>Configuration d'un serveur PHP local avec Apache et gestion des virtual hosts</li><li>Mise en place d'un environnement Docker Compose : PHP + PostgreSQL + Nginx</li><li>Rédaction d'un guide d'installation reproductible pour les membres de l'équipe</li></ol>
+        <ol><li>Utilisation de Docker et ces bibliotheques pour réaliser les conversions</li><li>Script Bash de conversion automatisé d'image</li><li>Script PHP pour faire des calculs plus complexes</li></ol>
       </article>
       <article class="axe">
         <header><span class="axe-num">2</span><strong>Mes réussites</strong></header>
-        <p><strong>Environnement Docker fonctionnel</strong> en moins de 10 minutes sur une nouvelle machine (T1, T3).</p>
-        <p><strong>Reproductibilité garantie</strong> : guide suivi par 3 camarades sans problème (T4).</p>
-        <p><strong>Isolation des dépendances</strong> via Docker, évitant les conflits de versions PHP (T3).</p>
+        <p><strong>Environnement Docker fonctionnel</strong></p>
+        <p><strong>Script Bash fonctionnel</strong> toutes les conversions sont faites sans aucun problème</p>
+        <p><strong>Calculs PHP utilisés</strong> pour faire certaines conversions spécifiques</p>
       </article>
       <article class="axe">
         <header><span class="axe-num">3</span><strong>Mes échecs &amp; objectifs</strong></header>
-        <p><strong>Permissions Linux mal configurées</strong> (T1) : échec sur la machine d'un camarade. → <em>Objectif : tester sur plusieurs profils utilisateurs.</em></p>
-        <p><strong>Docker Compose trop monolithique</strong> (T3). → <em>Objectif : adopter la séparation dev/prod avec des fichiers override.</em></p>
+        <p><strong>PHP incompris</strong> Je n'arrivais pas à comprendre ce langage durant ce projet → <em>Objectif : maitriser le PHP.</em></p>
+        <p><strong>Docker non fonctionnel</strong> sur ma machine personnelle → <em>Objectif : passer sous Linux (atteint)</em></p>
       </article>
       <article class="axe">
         <header><span class="axe-num">4</span><strong>Adaptation à d'autres situations</strong></header>
-        <p>Ces compétences s'appliquent à tout environnement : <strong>Node.js, Python</strong> ou stacks plus complexes.</p>
-        <p>Bash et Docker sont un socle pour la <strong>CI/CD</strong> et le <strong>déploiement cloud</strong>.</p>
+        <p>Ces compétences s'appliquent à tout environnement comme <strong>Node.js ou Python</strong> </p>
+        <p>Bash utilisé dans la vie de touts les jours pour <strong>simplifier la vie</strong>.</p>
       </article>
       <article class="axe axe-wide">
         <header><span class="axe-num">5</span><strong>Mon autoévaluation</strong></header>
         <ul class="eval-list">
           <li><span>Scripting Bash</span><span class="eval-score">60%</span><span class="eval-track"><span class="eval-fill" data-width="60"></span></span></li>
-          <li><span>Configuration PHP / Apache</span><span class="eval-score">65%</span><span class="eval-track"><span class="eval-fill" data-width="65"></span></span></li>
-          <li><span>Docker &amp; Docker Compose</span><span class="eval-score">70%</span><span class="eval-track"><span class="eval-fill" data-width="70"></span></span></li>
-          <li><span>Documentation &amp; reproductibilité</span><span class="eval-score">72%</span><span class="eval-track"><span class="eval-fill" data-width="72"></span></span></li>
-        </ul>
+          <li><span>Configuration PHP / Apache</span><span class="eval-score">30%</span><span class="eval-track"><span class="eval-fill" data-width="30"></span></span></li>
+          <li><span>Docker &amp; Docker Compose</span><span class="eval-score">50%</span><span class="eval-track"><span class="eval-fill" data-width="50"></span></span></li>        </ul>
       </article>
     </section>
   </article>
@@ -321,36 +319,34 @@
   <article class="comp-item">
     <header class="comp-header">
       <span class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>
-      <p><strong>Exploitation d'une base de données</strong><span>Outil utilisé : PostgreSQL</span></p>
+      <p><strong>Exploitation d'une base de données</strong><span>Outils utilisés :TutorialD , PostgreSQL</span></p>
     </header>
     <section class="axes-grid">
       <article class="axe">
         <header><span class="axe-num">1</span><strong>Mes traces</strong></header>
-        <ol><li>Conception d'un schéma relationnel (MCD → MLD) pour une application de gestion de stocks</li><li>Écriture de requêtes SQL complexes : jointures multiples, sous-requêtes, agrégations</li><li>Création de vues, triggers et procédures stockées en PL/pgSQL</li><li>Intégration de PostgreSQL dans une application PHP via PDO</li></ol>
+        <ol><li>Réalisation du schéma relationnel pour le calcul de factures d'éléctricité</li><li>Conception du modèle relationnel en TutorialD à partir du schéma réalisé précédement</li><li>Conception du model relationnel pour le fonctionnement de Parcoursup</li></ol>
       </article>
       <article class="axe">
         <header><span class="axe-num">2</span><strong>Mes réussites</strong></header>
-        <p><strong>Schéma normalisé (3NF)</strong> validé par l'enseignant, sans redondance (T1).</p>
-        <p><strong>Requêtes optimisées</strong> grâce à l'ajout d'index (T2).</p>
-        <p><strong>Application CRUD complète</strong> PHP + PostgreSQL opérationnelle (T4).</p>
+        <p><strong>Schéma normalisé</strong> validé par l'enseignant.</p>
+        <p><strong>Programme TurorialD fonctionnel </strong> avec suppression et création des tableaux</p>
+        <p><strong>Programme PostgreSQL fonctionnel</strong> peuplement réstant</p>
       </article>
       <article class="axe">
         <header><span class="axe-num">3</span><strong>Mes échecs &amp; objectifs</strong></header>
-        <p><strong>Injection SQL</strong> dans une première version (T4). → <em>Objectif : utiliser systématiquement les requêtes préparées PDO.</em></p>
-        <p><strong>Triggers mal documentés</strong> (T3). → <em>Objectif : toujours commenter les triggers avec leur cas d'usage.</em></p>
+        <p><strong>Schéma imparfait</strong> La réalisation était loin d'être la meilleure → <em>Objectif : apprendre à faire de bonnes relations.</em></p>
       </article>
       <article class="axe">
         <header><span class="axe-num">4</span><strong>Adaptation à d'autres situations</strong></header>
-        <p>Les compétences SQL sont transférables à <strong>MySQL, MariaDB, SQLite</strong> ou des ORM comme <strong>Prisma, Sequelize</strong>.</p>
-        <p>La logique relationnelle aide à comprendre les bases <strong>NoSQL</strong> (MongoDB, Redis).</p>
+        <p>Les compétences SQL sont transférables à <strong>MySQL, MariaDB, SQLite</strong>.</p>
+        <p>La logique relationnelle aide à comprendre les bases</p>
       </article>
       <article class="axe axe-wide">
         <header><span class="axe-num">5</span><strong>Mon autoévaluation</strong></header>
         <ul class="eval-list">
-          <li><span>Modélisation relationnelle (MCD/MLD)</span><span class="eval-score">70%</span><span class="eval-track"><span class="eval-fill" data-width="70"></span></span></li>
-          <li><span>Requêtes SQL avancées</span><span class="eval-score">68%</span><span class="eval-track"><span class="eval-fill" data-width="68"></span></span></li>
-          <li><span>PL/pgSQL (triggers, procédures)</span><span class="eval-score">50%</span><span class="eval-track"><span class="eval-fill" data-width="50"></span></span></li>
-          <li><span>Sécurité &amp; intégration applicative</span><span class="eval-score">55%</span><span class="eval-track"><span class="eval-fill" data-width="55"></span></span></li>
+          <li><span>Modélisation relationnelle (MCD/MLD)</span><span class="eval-score">20%</span><span class="eval-track"><span class="eval-fill" data-width="20"></span></span></li>
+          <li><span>TutorialD</span><span class="eval-score">50%</span><span class="eval-track"><span class="eval-fill" data-width="50"></span></span></li>
+          <li><span>PL/pgSQL</span><span class="eval-score">70%</span><span class="eval-track"><span class="eval-fill" data-width="70"></span></span></li>
         </ul>
       </article>
     </section>
@@ -364,31 +360,31 @@
     <section class="axes-grid">
       <article class="axe">
         <header><span class="axe-num">1</span><strong>Mes traces</strong></header>
-        <ol><li>Prototype HTML/CSS d'interface web à partir d'un cahier des charges client</li><li>Rédaction d'un document de spécifications fonctionnelles suite à un entretien utilisateur</li><li>Création de maquettes (wireframes) pour valider la structure avant développement</li><li>Présentation orale du prototype et intégration des retours client</li></ol>
+        <ol><li>Prototype et Maquette Figma d'interface web à partir d'un cahier des charges client</li><li>Réalisation du site web en HTML/CSS</li><li>Présentation orale du site web complet avec responsive</li></ol>
       </article>
       <article class="axe">
         <header><span class="axe-num">2</span><strong>Mes réussites</strong></header>
-        <p><strong>Prototype validé</strong> dès la première présentation client (T1, T3).</p>
-        <p><strong>Spécifications complètes</strong> couvrant tous les cas d'usage (T2).</p>
-        <p><strong>Intégration rapide des retours</strong> en moins d'une séance (T4).</p>
+        <p><strong>Responsive réussie</strong> preceque tout à été parfait dès le début.</p>
+        <p><strong>Fonctionnalités approuvés</strong> par le professeur.</p>
+        <p><strong>Présentation orale réussie</strong></p>
       </article>
       <article class="axe">
         <header><span class="axe-num">3</span><strong>Mes échecs &amp; objectifs</strong></header>
-        <p><strong>Questions d'entretien trop fermées</strong> (T2). → <em>Objectif : utiliser des questions ouvertes et le "5 pourquoi".</em></p>
-        <p><strong>CSS non responsive</strong> sur le prototype (T1). → <em>Objectif : adopter l'approche mobile-first dès la conception.</em></p>
+        <p><strong>Mauvaise charte graphique</strong> Les couleurs choisies n'était pas les meilleurs → <em>Objectif : apprendre d'avantage sur la colorimètrie</em></p>
+        <p><strong>Quelque defauts dans le design</strong> comme les combo-box par dessus les articles → <em>Objectif : trouver de meilleurs résolutions des problèmes</em></p>
       </article>
       <article class="axe">
         <header><span class="axe-num">4</span><strong>Adaptation à d'autres situations</strong></header>
         <p>La démarche s'applique à tout projet : <strong>application mobile, logiciel métier</strong> ou refonte de système.</p>
-        <p>HTML/CSS sont le socle pour aller vers <strong>React, Vue.js</strong> ou <strong>Figma</strong>.</p>
+        <p>Soutenance orale souvent présente en <strong>entreprise</strong></p>
       </article>
       <article class="axe axe-wide">
         <header><span class="axe-num">5</span><strong>Mon autoévaluation</strong></header>
         <ul class="eval-list">
           <li><span>HTML sémantique</span><span class="eval-score">80%</span><span class="eval-track"><span class="eval-fill" data-width="80"></span></span></li>
-          <li><span>CSS &amp; mise en page (Flexbox, Grid)</span><span class="eval-score">75%</span><span class="eval-track"><span class="eval-fill" data-width="75"></span></span></li>
-          <li><span>Analyse &amp; rédaction de spécifications</span><span class="eval-score">65%</span><span class="eval-track"><span class="eval-fill" data-width="65"></span></span></li>
-          <li><span>Communication avec le client</span><span class="eval-score">60%</span><span class="eval-track"><span class="eval-fill" data-width="60"></span></span></li>
+          <li><span>CSS</span><span class="eval-score">75%</span><span class="eval-track"><span class="eval-fill" data-width="75"></span></span></li>
+          <li><span>Figma</span><span class="eval-score">65%</span><span class="eval-track"><span class="eval-fill" data-width="65"></span></span></li>
+          <li><span>Web design</span><span class="eval-score">40%</span><span class="eval-track"><span class="eval-fill" data-width="40"></span></span></li>
         </ul>
       </article>
     </section>
@@ -402,31 +398,28 @@
     <section class="axes-grid">
       <article class="axe">
         <header><span class="axe-num">1</span><strong>Mes traces</strong></header>
-        <ol><li>Chef de groupe sur un projet Java à 4 personnes (6 semaines)</li><li>Utilisation de Git/GitHub pour la gestion des branches et revues de code</li><li>Tenue d'un tableau Kanban (Trello) avec suivi des tâches et délais</li><li>Rédaction de comptes rendus de réunion hebdomadaires</li></ol>
+        <ol><li>Utilisation des outils de collaboration (Trello)</li><li>Répartition des tâches et de la parole à l'oral</li><li>Recherches d'informations sur une entreprise</li></ol>
       </article>
       <article class="axe">
         <header><span class="axe-num">2</span><strong>Mes réussites</strong></header>
-        <p><strong>Projet livré dans les délais</strong> malgré un changement de périmètre en semaine 4 (T1, T3).</p>
-        <p><strong>Zéro conflit Git majeur</strong> grâce à une convention de branches (T2).</p>
-        <p><strong>Décisions traçables</strong> : les comptes rendus ont permis de résoudre un désaccord (T4).</p>
+        <p><strong>Projet livré dans les délais</strong> malgré un coéquipier démissionaire.</p>
+        <p><strong>Informations sur l'entreprise cohérentes</strong></p>
       </article>
       <article class="axe">
         <header><span class="axe-num">3</span><strong>Mes échecs &amp; objectifs</strong></header>
-        <p><strong>Répartition inégale</strong> en début de projet (T1). → <em>Objectif : faire un point bi-hebdomadaire et rééquilibrer.</em></p>
-        <p><strong>Communication trop informelle</strong> (T4). → <em>Objectif : systématiser les comptes rendus écrits.</em></p>
+        <p><strong>Diaporama mal fait</strong> les régles n'était pas réspéctés. → <em>Objectif : apprendre à faire de meilleures diapositives.</em></p>
+        <p><strong>Passage à l'oral échoué</strong> → <em>Objectif : s'ameliorer en discours</em></p>
       </article>
       <article class="axe">
         <header><span class="axe-num">4</span><strong>Adaptation à d'autres situations</strong></header>
-        <p>Ces compétences s'appliquent à tout contexte professionnel : <strong>Scrum, Kanban</strong>, projets en entreprise ou alternance.</p>
-        <p>La maîtrise de Git est un prérequis universel avec <strong>GitHub, GitLab ou Bitbucket</strong>.</p>
+        <p>Ces compétences s'appliquent à tout contexte professionnel : <strong>Scrum</strong>, projets en entreprise ou alternance.</p>
       </article>
       <article class="axe axe-wide">
         <header><span class="axe-num">5</span><strong>Mon autoévaluation</strong></header>
         <ul class="eval-list">
-          <li><span>Coordination &amp; répartition des tâches</span><span class="eval-score">68%</span><span class="eval-track"><span class="eval-fill" data-width="68"></span></span></li>
-          <li><span>Git en équipe (branches, PR, merge)</span><span class="eval-score">72%</span><span class="eval-track"><span class="eval-fill" data-width="72"></span></span></li>
-          <li><span>Outils de suivi (Kanban, Trello)</span><span class="eval-score">70%</span><span class="eval-track"><span class="eval-fill" data-width="70"></span></span></li>
-          <li><span>Communication écrite &amp; traçabilité</span><span class="eval-score">65%</span><span class="eval-track"><span class="eval-fill" data-width="65"></span></span></li>
+          <li><span>Coordination &amp; répartition des tâches</span><span class="eval-score">70%</span><span class="eval-track"><span class="eval-fill" data-width="70"></span></span></li>
+          <li><span>Outils de suivi (Trello)</span><span class="eval-score">70%</span><span class="eval-track"><span class="eval-fill" data-width="70"></span></span></li>
+          <li><span>Oral</span><span class="eval-score">40%</span><span class="eval-track"><span class="eval-fill" data-width="40"></span></span></li>
         </ul>
       </article>
     </section>
