@@ -506,7 +506,8 @@ section:nth-child(even) { background: var(--green-ultra); }
 
 .dip-card img {
   display: block;
-
+  width: 320px;
+  height: 320x;
   object-fit: cover;
   background: var(--green-bg);
 }
