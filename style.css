@@ -480,6 +480,38 @@ section:nth-child(even) { background: var(--green-ultra); }
 
 #diplome { background: var(--green-ultra); }
 
+.dip-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.dip-item {
+  border: 1px solid var(--green-pale);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  background: var(--white);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  margin: 0;
+}
+
+.dip-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--green-light);
+}
+
+.dip-card img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background: var(--green-bg);
+}
+
 #skills { background: var(--white); }
 
 #skills > .section-header { max-width: 1080px; margin: 0 auto 48px; }
