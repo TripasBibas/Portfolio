@@ -511,7 +511,7 @@ section:nth-child(even) { background: var(--green-ultra); }
   background: var(--green-bg);
 }
 
-.dip-card h2 {
+.dip-card figcaption{
   padding: 16px 20px;
   font-family: 'Arial Black', Arial, sans-serif;
   font-size: 15px;
