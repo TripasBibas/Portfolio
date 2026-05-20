@@ -1,3 +1,18 @@
+function onSoko() {
+  document.getElementById("overlaySoko").style.display = "block";
+}
+function onCava() {
+  document.getElementById("overlayCava").style.display = "block";
+}
+
+
+
+function offSoko() {
+  document.getElementById("overlaySoko").style.display = "none";
+}
+function offCava() {
+  document.getElementById("overlayCava").style.display = "none";
+}
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
