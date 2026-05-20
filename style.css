@@ -480,15 +480,15 @@ section:nth-child(even) { background: var(--green-ultra); }
 
 #diplome { background: var(--green-ultra); }
 
-.dip-card {
+.dip-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
-  max-width: 960px;
+  max-width: 1080px;
   margin: 0 auto;
 }
 
-.dip-item {
+.dip-card {
   border: 1px solid var(--green-pale);
   border-radius: var(--radius);
   overflow: hidden;
@@ -510,6 +510,16 @@ section:nth-child(even) { background: var(--green-ultra); }
   height: 200px;
   object-fit: cover;
   background: var(--green-bg);
+}
+
+.dip-card h2 {
+  padding: 16px 20px;
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: 15px;
+  color: var(--black);
+  border-top: 1px solid var(--green-pale);
+  text-align: center;
+  letter-spacing: -0.3px;
 }
 
 #skills { background: var(--white); }
