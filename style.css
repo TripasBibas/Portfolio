@@ -609,28 +609,23 @@ section:nth-child(even) {
   background: var(--green-ultra);
 }
 
-#diplome .section-header {
-  max-width: 1080px;
-  margin: 0 auto 40px;
-}
-
 .dip-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 28px;
   max-width: 1080px;
   margin: 0 auto;
 }
 
 .dip-card {
-  background: var(--white);
   border: 1px solid var(--green-pale);
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-direction: column;
+  background: var(--white);
   transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  margin: 0;
+  width: 470px;
 }
 
 .dip-card:hover {
@@ -639,103 +634,28 @@ section:nth-child(even) {
   border-color: var(--green-light);
 }
 
-.dip-card figure {
-  margin: 0;
-  overflow: hidden;
-}
-
-.dip-card figure img {
+.dip-card img {
   display: block;
-  width: 100%;
-  height: 200px;
-  object-fit: contain;
+  object-fit: cover;
   background: var(--green-bg);
-  padding: 16px;
-  transition: transform 0.3s ease;
 }
 
-.dip-card:hover figure img {
-  transform: scale(1.04);
+.dip-sti {
+  margin-left: 55px;
 }
 
-.dip-card figcaption {
-  padding: 16px 20px 12px;
-  text-align: center;
+.dip-butinfo {
+  margin-left: 80px;
 }
 
-.dip-card figcaption h3 {
-  font-family: 'Arial Black', Arial, sans-serif;
-  font-size: 16px;
-  color: var(--black);
-  letter-spacing: -0.3px;
-  margin-bottom: 4px;
-}
-
-.dip-card figcaption p {
-  font-size: 13px;
-  color: var(--gray-mid);
-}
-
-.dip-sep {
-  border: none;
-  border-top: 1px solid var(--green-pale);
-  margin: 0 20px;
-}
-
-.dip-links {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
+.dip-card h3 {
   padding: 16px 20px;
-  margin-top: auto;
-}
-
-.dip-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 14px;
-  background: var(--green-bg);
-  border: 1px solid var(--green-pale);
-  border-radius: var(--radius-sm);
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--green-dark);
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-
-.dip-links a svg {
-  width: 13px;
-  height: 13px;
-  flex-shrink: 0;
-  color: var(--green-main);
-}
-
-.dip-links a:hover {
-  background: var(--green-pale);
-  border-color: var(--green-mid);
-  color: var(--green-dark);
-}
-
-@media (max-width: 600px) {
-  .dip-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .dip-card figure img {
-    height: 160px;
-  }
-
-  .dip-links {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .dip-links a {
-    justify-content: center;
-  }
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: 15px;
+  color: var(--black);
+  border-top: 1px solid var(--green-pale);
+  text-align: center;
+  letter-spacing: -0.3px;
 }
 
 #skills {
