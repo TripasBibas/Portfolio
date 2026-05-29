@@ -4,6 +4,9 @@ function onSoko() {
 function onCava() {
   document.getElementById("overlayCava").style.display = "block";
 }
+function onSR() {
+  document.getElementById("overlaySR").style.display = "block";
+}
 
 
 
@@ -12,6 +15,9 @@ function offSoko() {
 }
 function offCava() {
   document.getElementById("overlayCava").style.display = "none";
+}
+function offSR() {
+  document.getElementById("overlaySR").style.display = "none";
 }
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
