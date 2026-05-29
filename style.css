@@ -955,7 +955,8 @@ section:nth-child(even) {
 }
 
 #soko,
-#cava{
+#cava,
+#siterussia{
   position: absolute;
   top: 50%;
   left: 50%;
