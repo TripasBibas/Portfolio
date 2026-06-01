@@ -940,7 +940,8 @@ section:nth-child(even) {
 }
 
 #overlaySoko,
-#overlayCava {
+#overlayCava,
+#overlaySR {
   position: fixed;
   display: none;
   width: 100%;
